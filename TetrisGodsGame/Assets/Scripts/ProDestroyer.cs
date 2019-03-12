@@ -21,7 +21,7 @@ public class ProDestroyer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(other);
+        Destroy(other.gameObject);
         boxy.enabled = false;
         print("pls die");
     }
