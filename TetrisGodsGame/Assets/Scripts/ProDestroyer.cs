@@ -23,5 +23,6 @@ public class ProDestroyer : MonoBehaviour
     {
         Destroy(other);
         boxy.enabled = false;
+        print("pls die");
     }
 }
