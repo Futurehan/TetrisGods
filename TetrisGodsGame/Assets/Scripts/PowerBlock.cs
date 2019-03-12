@@ -10,7 +10,7 @@ public class PowerBlock : MonoBehaviour
     {
         print("HERE");
         print(other.name);
-        Cannon cannon = other.GetComponentInChildren<Cannon>();
+        IPowerUp cannon = other.GetComponentInChildren<IPowerUp>();
         if (cannon != null)
         {
             cannon.Shoot();
