@@ -1,5 +1,4 @@
-<<<<<<< HEAD:TetrisGodsGame/Assets/Scripts/ProDestroyer.cs
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,7 +24,19 @@ public class ProDestroyer : MonoBehaviour
     private void OnTriggerEnter(Collider collision)
     {
         //Determine parent of collided object
-        GameObject other = collision.gameObject;
+        Transform parent = collision.transform.parent;
+        for (int i = 0; i < parent.childCount; i++)
+        {
+            GameObject subBox = parent.GetChild(i).gameObject;
+            if(subBox != collision.gameObject && subBox.GetComponent<Rigidbody>() ==null)
+            {
+                Rigidbody rb = parent.GetChild(i).gameObject.AddComponent<Rigidbody>();
+                rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
+            }
+            
+
+        }
+
 
 
         //Destroy collided blocks and count how many
