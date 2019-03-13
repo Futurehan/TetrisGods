@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8167276624945545760}
   - component: {fileID: 7421509462028753163}
   - component: {fileID: 7648111973752691868}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: sprite_sheet1_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 4533668439743750371}
   - component: {fileID: 3733152557104799515}
   - component: {fileID: 5947929744094035036}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: sprite_sheet1_7 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 84079604645906992}
   - component: {fileID: 4440303011203888955}
   - component: {fileID: 5275444034232676538}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: sprite_sheet1_7 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 3104086566781164130}
   - component: {fileID: 6799468790611356588}
   - component: {fileID: 3597088522883055137}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: I-BLOCK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 4276168511978613895}
   - component: {fileID: 1982982202031385934}
   - component: {fileID: 1091884923803165946}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: sprite_sheet1_7 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
