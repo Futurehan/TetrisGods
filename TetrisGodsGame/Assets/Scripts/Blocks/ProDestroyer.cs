@@ -1,3 +1,4 @@
+<<<<<<< HEAD:TetrisGodsGame/Assets/Scripts/ProDestroyer.cs
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ public class ProDestroyer : MonoBehaviour
 {
     Rigidbody body;
     BoxCollider boxy;
+    public int blocksToDestroy;
+    int blocksDestroyed;
     private void Awake()
     {
         body = GetComponent<Rigidbody>();
@@ -19,10 +22,20 @@ public class ProDestroyer : MonoBehaviour
         body.AddForce(shootForce, ForceMode.Impulse);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collision)
     {
-        Destroy(other.gameObject);
-        boxy.enabled = false;
-        print("pls die");
+        //Determine parent of collided object
+        GameObject other = collision.gameObject;
+
+
+        //Destroy collided blocks and count how many
+        Destroy(collision.gameObject);
+        blocksDestroyed++;
+
+        if (blocksDestroyed >= blocksToDestroy)
+        {
+            boxy.enabled = false;
+        }
+        print(collision + " DESTROYED!!!");
     }
 }

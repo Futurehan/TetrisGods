@@ -1,3 +1,4 @@
+
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,10 @@ using UnityEngine;
 public class SuperWeapon : MonoBehaviour, IPowerUp
 {
     public GameObject Destroyer;
-    GameObject dk;
+    GameObject bullet;
     public void Shoot()
     {
-        dk = Instantiate(Destroyer, gameObject.transform.position, Quaternion.identity);
-        dk.GetComponent<ProDestroyer>().Fire(gameObject.transform.up);
+        bullet = Instantiate(Destroyer, gameObject.transform.position, Quaternion.identity);
+        bullet.GetComponent<ProDestroyer>().Fire(gameObject.transform.up);
     }
 }
