@@ -35,7 +35,7 @@ public class BlockController : MonoBehaviour
     {
 
         Vector3 forceInput = Input.GetAxis(verticalID) * body.transform.up * 900 * Time.deltaTime;
-        Vector3 turnInput = Input.GetAxis(horizontalID)*body.transform.forward * -400 *Time.deltaTime;
+        Vector3 turnInput = Input.GetAxis(horizontalID)*body.transform.forward * -100 *Time.deltaTime;
         body.AddTorque(turnInput);
         body.AddForce(forceInput);
         if (Input.GetKeyUp(code))
