@@ -146,6 +146,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Active: 0
+  spawnTime: 2
+  subBlocks:
+  - {fileID: 6368348800387848360}
+  - {fileID: 7998983481536127423}
+  - {fileID: 9172679568850389878}
+  - {fileID: 8655477562211942151}
 --- !u!1 &771743155515263091
 GameObject:
   m_ObjectHideFlags: 0
