@@ -74,10 +74,15 @@ public class GameManager : MonoBehaviour
         return _instance.PlayerScore[playerIndex];
     }
 
+    public static float GetCurrentBlockDropIntveal()
+    {
+        return (1 - _instance.Settings.BlockSpawnInterval.Evaluate(_instance.CurrentTime / _instance.Settings.RoundTime)) * _instance.Settings.MaxBlockSpawnInterval;
+    }
+
     void Update()
     {
         if(!IsPaused)
-            CurrentTime += Time.deltaTime;
+            CurrentTime += Time.deltaTime;    
 
         if (CurrentTime > Settings.RoundTime)
         {
