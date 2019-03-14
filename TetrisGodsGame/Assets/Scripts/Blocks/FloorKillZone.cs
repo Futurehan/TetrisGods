@@ -9,12 +9,7 @@ public class FloorKillZone : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         BlockController block = other.GetComponentInParent<BlockController>();
-        if (block !=null)
-        {
-            block.Death();
-
-        }
-
-        Destroy(other.gameObject);
+        if (block !=null) 
+            block.Death(other.gameObject);
     }
 }
