@@ -36,3 +36,5 @@ sysinfo.txt
 *.unitypackage
 
 TetrisGodsGame/ProjectSettings/ProjectVersion\.txt
+
+TetrisGodsGame/Assets/Art/AAAHelloWorld\.txt\.meta
