@@ -8,8 +8,10 @@ public class GameManager : MonoBehaviour
 {   
     public enum PlayerIndex
     {
+        
         One,
-        Two
+        Two,
+        Noll
     }
     private static GameManager _instanceHelper;
     private static GameManager _instance

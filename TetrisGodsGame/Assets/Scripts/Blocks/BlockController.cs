@@ -42,7 +42,7 @@ public class BlockController : MonoBehaviour
 
         body = GetComponent<Rigidbody>();
         box = GetComponent<GameObject>();
-        InvokeRepeating("SpawnTimer", 0.0f, 2.0f);
+    //    InvokeRepeating("SpawnTimer", 0.0f, 2.0f);
     }
 
     // Update is called once per frame
@@ -52,17 +52,16 @@ public class BlockController : MonoBehaviour
             Movement(); 
     }
 
-    void SpawnTimer()
+    void Spawn()
     {
-        if (activateSpawn)
-        {
-            downThrust.SetActive(false);
-            leftThrust.SetActive(false);
-            rightThrust.SetActive(false);
-            blockSpawner.CallNext();
-            Active = false;
-            activateSpawn = false;
-        }
+
+         downThrust.SetActive(false);
+         leftThrust.SetActive(false);
+         rightThrust.SetActive(false);
+         blockSpawner.CallNext();
+         Active = false;
+         activateSpawn = false;
+        
     }
 
     private void Movement()
@@ -133,7 +132,11 @@ public class BlockController : MonoBehaviour
     {
         if (!Active) return;
         if (collision.gameObject.GetComponent<BlockController>() != null && collision.gameObject != gameObject || collision.gameObject.tag == "Ground")
-            activateSpawn = true;
+        {
+            Active = false;
+            Spawn();
+        }
+            
     }
 
     public void Activate(BlockSpawner spawner, GameManager.PlayerIndex ownerId)
@@ -167,10 +170,10 @@ public class BlockController : MonoBehaviour
         if(OnBoxDestruction != null && subBlocks.Count <= 0)
         {
             OnBoxDestruction.Invoke(this, owner);
-            if (Active || activateSpawn)
+            if (Active && !activateSpawn)
             {
                 activateSpawn = true;
-                SpawnTimer();
+                Spawn();
             }
      
         }
