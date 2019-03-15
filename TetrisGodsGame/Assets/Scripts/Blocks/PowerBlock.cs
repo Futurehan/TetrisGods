@@ -14,6 +14,7 @@ public class PowerBlock : MonoBehaviour
         if (cannon != null)
         {
             cannon.Shoot();
+            cannon = null;
         }
     }
 }
