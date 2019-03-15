@@ -11,42 +11,40 @@ public class ProDestroyer : MonoBehaviour
     private void Awake()
     {
         body = GetComponent<Rigidbody>();
-        boxy = GetComponent<BoxCollider>();
     }
 
 
     public void Fire(Vector3 forceDirection)
     {
-        Vector3 shootForce = forceDirection.normalized * 30f;
+        Vector3 shootForce = forceDirection.normalized * 7f;
         body.AddForce(shootForce, ForceMode.Impulse);
+        print("KILLER");
     }
 
     private void OnTriggerEnter(Collider collision)
     {
+        if (blocksDestroyed >= blocksToDestroy) return;
+
         //Determine parent of collided object
         Transform parent = collision.transform.parent;
-        for (int i = 0; i < parent.childCount; i++)
+        if (parent)
         {
-            GameObject subBox = parent.GetChild(i).gameObject;
-            if(subBox != collision.gameObject && subBox.GetComponent<Rigidbody>() ==null)
+            for (int i = 0; i < parent.childCount; i++)
             {
-                Rigidbody rb = parent.GetChild(i).gameObject.AddComponent<Rigidbody>();
-                rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
+                GameObject subBox = parent.GetChild(i).gameObject;
+                if (subBox != collision.gameObject && subBox.GetComponent<Rigidbody>() == null)
+                {
+                    Rigidbody rb = parent.GetChild(i).gameObject.AddComponent<Rigidbody>();
+                    rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
+                }
+
+
             }
-            
-
         }
-
-
 
         //Destroy collided blocks and count how many
-        Destroy(collision.gameObject);
-        blocksDestroyed++;
-
-        if (blocksDestroyed >= blocksToDestroy)
-        {
-            boxy.enabled = false;
-        }
+        Destroy(collision.gameObject); 
         print(collision + " DESTROYED!!!");
+        blocksDestroyed++;
     }
 }

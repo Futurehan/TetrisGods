@@ -8,8 +8,10 @@ public class GameManager : MonoBehaviour
 {   
     public enum PlayerIndex
     {
+        
         One,
-        Two
+        Two,
+        Noll
     }
     private static GameManager _instanceHelper;
     private static GameManager _instance
@@ -19,34 +21,39 @@ public class GameManager : MonoBehaviour
             if (_instanceHelper == null)
             {
                 _instanceHelper = FindObjectOfType<GameManager>();
-                _instanceHelper.Setup();
+                if(_instanceHelper != null) _instanceHelper.Setup(); 
             }
+                
+                  
             if (_instanceHelper == null)
             {
                 _instanceHelper = new GameObject("GameManager").AddComponent<GameManager>();
                 _instanceHelper.Setup();
             }
-            
+    
             return _instanceHelper;
         }
     }
          
+    private BlockLists BlockList;
     private Dictionary<PlayerIndex, int> PlayerScore;
-    private bool IsPaused;
+    private bool IsPaused = true;
     private float CurrentTime;
     private GameplaySettings Settings;
-
+    private GameObject _floorTag;
     public static Action RoundOver;
-    
+
+
     private void Awake()
     {
-        if(Settings != null) return;
-
-        Setup();
+        IsPaused = true;
     }
+
 
     private void Setup()
     {
+        Debug.Log("Set up");
+        
         Settings = Instantiate(AssetDatabase.LoadAssetAtPath<GameplaySettings>("Assets/Scriptables/Settings/GameplaySettings.asset"));
         
         PlayerScore = new Dictionary<PlayerIndex, int>();
@@ -55,7 +62,21 @@ public class GameManager : MonoBehaviour
         {
             PlayerScore.Add((PlayerIndex)i, 0);
         }
-
+      
+        if (BlockList == null) 
+            BlockList = FindObjectOfType<BlockLists>();
+     
+        if (BlockList == null)  
+            BlockList = new GameObject("BlockList").AddComponent<BlockLists>();
+        
+        _floorTag = GameObject.FindWithTag("Floor");
+        if (_floorTag == null)
+        {
+            _floorTag = new GameObject();
+            _floorTag.tag = "Floor";
+        }
+        
+  
         IsPaused = false;
     }
 
@@ -79,15 +100,45 @@ public class GameManager : MonoBehaviour
         return (1 - _instance.Settings.BlockSpawnInterval.Evaluate(_instance.CurrentTime / _instance.Settings.RoundTime)) * _instance.Settings.MaxBlockSpawnInterval;
     }
 
+    public static BlockController GetPlayerTopBlock(PlayerIndex player)
+    {
+        BlockController[] blocks = _instance.BlockList.GetPlayerBlocks(player).ToArray();
+        if (blocks.Length <= 0) return null;
+        float height = 0;
+        int index = 0;
+        for (int i = 0; i < blocks.Length; i++)
+        {
+            float dist = _instance._floorTag.transform.position.y - blocks[i].transform.position.y;
+            dist = Mathf.Abs(dist);
+            if (dist > height)
+            {
+                index = i;
+                height =  dist;
+            }
+       
+        }
+       
+        return blocks[index];
+    }
+
+    public static float GetDistanceToFloor(Vector3 point)
+    {
+        return Mathf.Abs(_instance._floorTag.transform.position.y - point.y);
+    }
+    
     void Update()
     {
-        if(!IsPaused)
-            CurrentTime += Time.deltaTime;    
-
+        if (IsPaused) return;
+        
+        
+        CurrentTime += Time.deltaTime;    
+          
         if (CurrentTime > Settings.RoundTime)
         {
-            RoundOver.Invoke();
-        }
+            RoundOver?.Invoke();
             Debug.Log("Round over!");
+            IsPaused = true;
+        }
+           
     }
 }

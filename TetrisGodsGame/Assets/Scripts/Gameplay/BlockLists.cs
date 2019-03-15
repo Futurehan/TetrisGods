@@ -6,8 +6,9 @@ using UnityEngine;
 public class BlockLists : MonoBehaviour
 {
     public List<BlockController> spawnedBlocks = new List<BlockController>();
-    BlockSpawner[] blockSpawnerArray;
-    BlockController blockController;
+    private BlockSpawner[] blockSpawnerArray;
+    private Dictionary<GameManager.PlayerIndex, List<BlockController>> PlayerBlocks;
+    private BlockController blockController;
     // Start is called before the first frame update
     void Awake()
     {
@@ -16,28 +17,37 @@ public class BlockLists : MonoBehaviour
 
         for (int i = 0; i < blockSpawnerArray.Length; i++)
             blockSpawnerArray[i].OnSpawner += AddSpawnedBlocks;
+
+        PlayerBlocks = new Dictionary<GameManager.PlayerIndex, List<BlockController>>();
+        
+        for (int i = 0; i < (int)GameManager.PlayerIndex.Two + 1; i++)
+                PlayerBlocks.Add((GameManager.PlayerIndex)i, new List<BlockController>());
+        
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AddSpawnedBlocks(BlockController block, GameManager.PlayerIndex player)
     {
-    }
-
-    public void AddSpawnedBlocks(BlockController blocks)
-    {
-        if (blocks != null)
+        if (block != null)
         {
-            spawnedBlocks.Add(blocks);
-            blocks.OnBoxDestruction += RemovedBlock;
+            spawnedBlocks.Add(block);
+            Debug.Log(PlayerBlocks.Count);
+            PlayerBlocks[player].Add(block);
+            block.OnBoxDestruction += RemovedBlock;
+        }
+    }
+    
+    public void RemovedBlock(BlockController block, GameManager.PlayerIndex player)
+    {
+        if (spawnedBlocks.Contains(block))
+        {
+            spawnedBlocks.Remove(block);
+            PlayerBlocks[player].Remove(block);
+            Destroy(block.gameObject);
         }
     }
 
-    public void RemovedBlock(BlockController blocks)
+    public List<BlockController> GetPlayerBlocks(GameManager.PlayerIndex player)
     {
-        if (spawnedBlocks.Contains(blocks))
-        {
-            spawnedBlocks.Remove(blocks);
-            Destroy(blocks.gameObject);
-        }
+        return PlayerBlocks[player];
     }
 }

@@ -17,9 +17,19 @@ public class BlockController : MonoBehaviour
     private Rigidbody body;
     private BlockSpawner blockSpawner;
     private GameObject box;
+    private GameManager.PlayerIndex owner;
+    private float thrustLerpDistance = 0;
+    private float thrustLerpSpeed = 15;
+    private float leftthrustLerpDistance = 0;
+    private float rightthrustLerpDistance = 0;
+
+
+    public GameObject downThrust;
+    public GameObject leftThrust;
+    public GameObject rightThrust;
 
     //Delegates
-    public delegate void OnDestruction(BlockController boxObject);
+    public delegate void OnDestruction(BlockController boxObject, GameManager.PlayerIndex player);
     public OnDestruction OnBoxDestruction;
 
     // Start is called before the first frame update
@@ -32,7 +42,7 @@ public class BlockController : MonoBehaviour
 
         body = GetComponent<Rigidbody>();
         box = GetComponent<GameObject>();
-        InvokeRepeating("SpawnTimer", 0.0f, 2.0f);
+    //    InvokeRepeating("SpawnTimer", 0.0f, 2.0f);
     }
 
     // Update is called once per frame
@@ -42,14 +52,16 @@ public class BlockController : MonoBehaviour
             Movement(); 
     }
 
-    void SpawnTimer()
+    void Spawn()
     {
-        if (activateSpawn)
-        {
-            blockSpawner.CallNext();
-            Active = false;
-            activateSpawn = false;
-        }
+
+         downThrust.SetActive(false);
+         leftThrust.SetActive(false);
+         rightThrust.SetActive(false);
+         blockSpawner.CallNext();
+         Active = false;
+         activateSpawn = false;
+        
     }
 
     private void Movement()
@@ -58,25 +70,86 @@ public class BlockController : MonoBehaviour
         Vector3 turnInput = Input.GetAxis(horizontalID)*body.transform.forward * -100 *Time.deltaTime;
         body.AddTorque(turnInput);
         body.AddForce(forceInput);
+
+
+        //Thrust graphic handler
+        #region
+        if (Input.GetAxis(verticalID) != 0)
+        {
+            if (downThrust.transform.localScale.y < 1)
+            {
+                downThrust.transform.localScale = Vector3.Lerp(new Vector3(1, 0, 1), new Vector3(1, 1, 1), thrustLerpDistance);
+                thrustLerpDistance = thrustLerpDistance + thrustLerpSpeed * Time.deltaTime;
+            }
+
+        }
+        else
+        {
+            if (downThrust.transform.localScale.y > 0)
+            {
+                downThrust.transform.localScale = Vector3.Lerp(new Vector3(1, 0, 1), new Vector3(1, 1, 1), thrustLerpDistance);
+                thrustLerpDistance = thrustLerpDistance - thrustLerpSpeed * Time.deltaTime;
+            }
+        }
+        if (Input.GetAxis(horizontalID) !=0)
+        {
+            if (Input.GetAxis(horizontalID) > 0)
+            {
+                if (leftThrust.transform.localScale.y < 1)
+                {
+                    leftThrust.transform.localScale = Vector3.Lerp(new Vector3(1, 0, 1), new Vector3(1, 1, 1), leftthrustLerpDistance);
+                    leftthrustLerpDistance = leftthrustLerpDistance + thrustLerpSpeed * Time.deltaTime;
+                }
+            }
+
+            else if (Input.GetAxis(horizontalID) < 0)
+            {
+                if (rightThrust.transform.localScale.y < 1)
+                {
+                    rightThrust.transform.localScale = Vector3.Lerp(new Vector3(1, 0, 1), new Vector3(1, 1, 1), rightthrustLerpDistance);
+                    rightthrustLerpDistance = rightthrustLerpDistance + thrustLerpSpeed * Time.deltaTime;
+                }
+            }
+        }
+        else
+        {
+            if (leftThrust.transform.localScale.y > 0)
+            {
+                leftThrust.transform.localScale = Vector3.Lerp(new Vector3(1, 0, 1), new Vector3(1, 1, 1), leftthrustLerpDistance);
+                leftthrustLerpDistance = leftthrustLerpDistance - thrustLerpSpeed * Time.deltaTime;
+            }
+            if (rightThrust.transform.localScale.y > 0)
+            {
+                rightThrust.transform.localScale = Vector3.Lerp(new Vector3(1, 0, 1), new Vector3(1, 1, 1), rightthrustLerpDistance);
+                rightthrustLerpDistance = rightthrustLerpDistance - thrustLerpSpeed * Time.deltaTime;
+            }
+        }
+        #endregion  
+
     }
 
     public void OnCollisionEnter(Collision collision)
     {
         if (!Active) return;
         if (collision.gameObject.GetComponent<BlockController>() != null && collision.gameObject != gameObject || collision.gameObject.tag == "Ground")
-            activateSpawn = true;
+        {
+            Active = false;
+            Spawn();
+        }
+            
     }
 
-    public void Activate(BlockSpawner spawner, BlockSpawner.playerID PlayerID)
+    public void Activate(BlockSpawner spawner, GameManager.PlayerIndex ownerId)
     {
         blockSpawner = spawner;
-        switch (PlayerID)
+        owner = ownerId;
+        switch (ownerId)
         {
-            case BlockSpawner.playerID.Player_1:
+            case GameManager.PlayerIndex.One:
                 verticalID = "Vertical";
                 horizontalID = "Horizontal";
                 break;
-            case BlockSpawner.playerID.Player_2:
+            case GameManager.PlayerIndex.Two:
                 verticalID = "Verticalp2";
                 horizontalID = "Horizontalp2";
                 break;
@@ -96,11 +169,11 @@ public class BlockController : MonoBehaviour
         Destroy(childObjectHit);
         if(OnBoxDestruction != null && subBlocks.Count <= 0)
         {
-            OnBoxDestruction.Invoke(this);
-            if (Active || activateSpawn)
+            OnBoxDestruction.Invoke(this, owner);
+            if (Active && !activateSpawn)
             {
                 activateSpawn = true;
-                SpawnTimer();
+                Spawn();
             }
      
         }
