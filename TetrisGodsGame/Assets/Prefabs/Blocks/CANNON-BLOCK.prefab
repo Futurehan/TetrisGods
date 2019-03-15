@@ -114,6 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Barrel: {fileID: 2668706140944585911, guid: 686b1c4ddf639904283dec8ee28356fc, type: 3}
+  initalRotation: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8254963676385001638
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class Cannon : MonoBehaviour, IPowerUp
     GameObject dk;
     public void Shoot()
     {
-        dk = Instantiate(Barrel,gameObject.transform.position,Quaternion.identity);
+        dk = Instantiate(Barrel,gameObject.transform.position,gameObject.transform.rotation);
         dk.GetComponent<DKBarrel>().Fire(gameObject.transform.up);
     }
 
