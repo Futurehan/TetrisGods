@@ -17,7 +17,7 @@ public class ProDestroyer : MonoBehaviour
 
     public void Fire(Vector3 forceDirection)
     {
-        Vector3 shootForce = forceDirection.normalized * 30f;
+        Vector3 shootForce = forceDirection.normalized * 7f;
         body.AddForce(shootForce, ForceMode.Impulse);
     }
 
