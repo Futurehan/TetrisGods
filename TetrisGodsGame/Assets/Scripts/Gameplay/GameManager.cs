@@ -98,22 +98,32 @@ public class GameManager : MonoBehaviour
         return (1 - _instance.Settings.BlockSpawnInterval.Evaluate(_instance.CurrentTime / _instance.Settings.RoundTime)) * _instance.Settings.MaxBlockSpawnInterval;
     }
 
-    public static float GetPlayerBlockHeight(PlayerIndex player)
+    public static BlockController GetPlayerTopBlock(PlayerIndex player)
     {
-        float height = 0;
-        Debug.Log(_instance.BlockList);
         BlockController[] blocks = _instance.BlockList.GetPlayerBlocks(player).ToArray();
+        if (blocks.Length <= 0) return null;
+        float height = 0;
+        int index = 0;
         for (int i = 0; i < blocks.Length; i++)
         {
             float dist = _instance._floorTag.transform.position.y - blocks[i].transform.position.y;
             dist = Mathf.Abs(dist);
             if (dist > height)
+            {
+                index = i;
                 height =  dist;
+            }
+       
         }
        
-        return height;
+        return blocks[index];
     }
 
+    public static float GetDistanceToFloor(Vector3 point)
+    {
+        return Mathf.Abs(_instance._floorTag.transform.position.y - point.y);
+    }
+    
     void Update()
     {
         if (IsPaused) return;
