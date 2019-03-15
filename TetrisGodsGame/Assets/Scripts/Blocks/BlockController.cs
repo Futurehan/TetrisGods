@@ -17,9 +17,10 @@ public class BlockController : MonoBehaviour
     private Rigidbody body;
     private BlockSpawner blockSpawner;
     private GameObject box;
+    private GameManager.PlayerIndex owner;
 
     //Delegates
-    public delegate void OnDestruction(BlockController boxObject);
+    public delegate void OnDestruction(BlockController boxObject, GameManager.PlayerIndex player);
     public OnDestruction OnBoxDestruction;
 
     // Start is called before the first frame update
@@ -67,16 +68,17 @@ public class BlockController : MonoBehaviour
             activateSpawn = true;
     }
 
-    public void Activate(BlockSpawner spawner, BlockSpawner.playerID PlayerID)
+    public void Activate(BlockSpawner spawner, GameManager.PlayerIndex ownerId)
     {
         blockSpawner = spawner;
-        switch (PlayerID)
+        owner = ownerId;
+        switch (ownerId)
         {
-            case BlockSpawner.playerID.Player_1:
+            case GameManager.PlayerIndex.One:
                 verticalID = "Vertical";
                 horizontalID = "Horizontal";
                 break;
-            case BlockSpawner.playerID.Player_2:
+            case GameManager.PlayerIndex.Two:
                 verticalID = "Verticalp2";
                 horizontalID = "Horizontalp2";
                 break;
@@ -96,7 +98,7 @@ public class BlockController : MonoBehaviour
         Destroy(childObjectHit);
         if(OnBoxDestruction != null && subBlocks.Count <= 0)
         {
-            OnBoxDestruction.Invoke(this);
+            OnBoxDestruction.Invoke(this, owner);
             if (Active || activateSpawn)
             {
                 activateSpawn = true;
