@@ -159,6 +159,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Active: 0
+  spawnTime: 2
+  subBlocks: []
 --- !u!1 &1505732975561402010
 GameObject:
   m_ObjectHideFlags: 0
