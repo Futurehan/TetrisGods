@@ -748,6 +748,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99467f33f98df4b418a096ad426b130d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerOneSpaner: {fileID: 1131087049}
+  PlayerTwoSpawner: {fileID: 2034997817}
 --- !u!1 &371792593
 GameObject:
   m_ObjectHideFlags: 0
@@ -1118,7 +1120,7 @@ PrefabInstance:
     - target: {fileID: 2946976893010324625, guid: ceac2dc8b9bf2744caf23426fb186196,
         type: 3}
       propertyPath: m_Name
-      value: BlockSpawn (1)
+      value: BlockSpawnP2
       objectReference: {fileID: 0}
     - target: {fileID: 2946976893010324627, guid: ceac2dc8b9bf2744caf23426fb186196,
         type: 3}
@@ -1128,7 +1130,7 @@ PrefabInstance:
     - target: {fileID: 2946976893010324627, guid: ceac2dc8b9bf2744caf23426fb186196,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.1978428
+      value: 3.8
       objectReference: {fileID: 0}
     - target: {fileID: 2946976893010324627, guid: ceac2dc8b9bf2744caf23426fb186196,
         type: 3}
@@ -1233,6 +1235,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 684811689312269650, guid: 8cba28d360015d247bfb421e8c9dd9c0,
         type: 3}
+    - target: {fileID: 2946976893010324626, guid: ceac2dc8b9bf2744caf23426fb186196,
+        type: 3}
+      propertyPath: BlockSpawnWidth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946976893010324626, guid: ceac2dc8b9bf2744caf23426fb186196,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2946976893010324626, guid: ceac2dc8b9bf2744caf23426fb186196,
+        type: 3}
+      propertyPath: ActiveLatyer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ceac2dc8b9bf2744caf23426fb186196, type: 3}
 --- !u!1 &761112240
@@ -1859,6 +1876,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1131087049 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2946976893010324626, guid: ceac2dc8b9bf2744caf23426fb186196,
+    type: 3}
+  m_PrefabInstance: {fileID: 1660029784}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e27b2036e7bae4e99150203ef3a1f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1230608895
 GameObject:
   m_ObjectHideFlags: 0
@@ -2515,7 +2544,7 @@ PrefabInstance:
     - target: {fileID: 2946976893010324625, guid: ceac2dc8b9bf2744caf23426fb186196,
         type: 3}
       propertyPath: m_Name
-      value: BlockSpawn
+      value: BlockSpawnP1
       objectReference: {fileID: 0}
     - target: {fileID: 2946976893010324627, guid: ceac2dc8b9bf2744caf23426fb186196,
         type: 3}
@@ -2525,7 +2554,7 @@ PrefabInstance:
     - target: {fileID: 2946976893010324627, guid: ceac2dc8b9bf2744caf23426fb186196,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.1978428
+      value: 3.82
       objectReference: {fileID: 0}
     - target: {fileID: 2946976893010324627, guid: ceac2dc8b9bf2744caf23426fb186196,
         type: 3}
@@ -2602,6 +2631,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 684811689312269650, guid: 8cba28d360015d247bfb421e8c9dd9c0,
         type: 3}
+    - target: {fileID: 2946976893010324626, guid: ceac2dc8b9bf2744caf23426fb186196,
+        type: 3}
+      propertyPath: BlockSpawnWidth
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ceac2dc8b9bf2744caf23426fb186196, type: 3}
 --- !u!1 &1697730948
@@ -3174,6 +3208,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2034997817 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2946976893010324626, guid: ceac2dc8b9bf2744caf23426fb186196,
+    type: 3}
+  m_PrefabInstance: {fileID: 624218562}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e27b2036e7bae4e99150203ef3a1f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2061838207
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,5 +9,4 @@ public class GameplaySettings : ScriptableObject
     public AnimationCurve BlockSpawnInterval;
     public float VictoryHeight;
     public int NumberOfLives;
-
 }
