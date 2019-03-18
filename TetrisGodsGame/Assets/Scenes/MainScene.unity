@@ -501,6 +501,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: KillZone
       objectReference: {fileID: 0}
+    - target: {fileID: 6806181532221664047, guid: 1f9d52860bdc5dc4b868449f6f36e756,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6806181532221664045, guid: 1f9d52860bdc5dc4b868449f6f36e756,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -555,6 +560,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6806181532221664045, guid: 1f9d52860bdc5dc4b868449f6f36e756,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 36.436
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f9d52860bdc5dc4b868449f6f36e756, type: 3}
