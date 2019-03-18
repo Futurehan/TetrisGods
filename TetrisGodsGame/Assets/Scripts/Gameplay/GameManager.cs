@@ -35,13 +35,16 @@ public class GameManager : MonoBehaviour
         }
     }
          
+    public static Action RoundOver;
+//    public static Action 
+    
     private BlockLists BlockList;
     private Dictionary<PlayerIndex, int> PlayerScore;
-    private bool IsPaused = true;
+    public bool IsPaused { get; private set; }
     private float CurrentTime;
     private GameplaySettings Settings;
     private GameObject _floorTag;
-    public static Action RoundOver;
+
 
 
     private void Awake()
@@ -95,7 +98,7 @@ public class GameManager : MonoBehaviour
         return _instance.PlayerScore[playerIndex];
     }
 
-    public static float GetCurrentBlockDropIntveal()
+    public static float GetCurrentBlockDropInterval()
     {
         return (1 - _instance.Settings.BlockSpawnInterval.Evaluate(_instance.CurrentTime / _instance.Settings.RoundTime)) * _instance.Settings.MaxBlockSpawnInterval;
     }
@@ -124,6 +127,16 @@ public class GameManager : MonoBehaviour
     public static float GetDistanceToFloor(Vector3 point)
     {
         return Mathf.Abs(_instance._floorTag.transform.position.y - point.y);
+    }
+
+    public static float GetCurrentRoundTime()
+    {
+        return _instance.CurrentTime;
+    }
+
+    public static float GetRoundMaxTime()
+    {
+        return _instance.Settings.RoundTime;
     }
     
     void Update()
