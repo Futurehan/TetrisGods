@@ -54,10 +54,13 @@ public class BlockController : MonoBehaviour
 
     void Spawn()
     {
+        if (downThrust!=null)
+        {
+            downThrust.SetActive(false);
+            leftThrust.SetActive(false);
+            rightThrust.SetActive(false);
+        }
 
-         downThrust.SetActive(false);
-         leftThrust.SetActive(false);
-         rightThrust.SetActive(false);
          blockSpawner.CallNext();
          Active = false;
          activateSpawn = false;
@@ -169,8 +172,10 @@ public class BlockController : MonoBehaviour
         Destroy(childObjectHit);
         if(OnBoxDestruction != null && subBlocks.Count <= 0)
         {
+            print("CALLING NEXT");
+
             OnBoxDestruction.Invoke(this, owner);
-            if (Active && !activateSpawn)
+            if (!Active && activateSpawn)
             {
                 activateSpawn = true;
                 Spawn();

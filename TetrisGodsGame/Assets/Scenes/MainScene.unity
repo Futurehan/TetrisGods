@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 267186017}
   - component: {fileID: 267186016}
   - component: {fileID: 267186018}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player2_base2
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -885,7 +885,7 @@ GameObject:
   - component: {fileID: 586672602}
   - component: {fileID: 586672601}
   - component: {fileID: 586672603}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player2_base1
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -982,7 +982,7 @@ PrefabInstance:
     - target: {fileID: 2946976893010324625, guid: ceac2dc8b9bf2744caf23426fb186196,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2946976893010324627, guid: ceac2dc8b9bf2744caf23426fb186196,
         type: 3}
@@ -1747,9 +1747,9 @@ GameObject:
   - component: {fileID: 1362958041}
   - component: {fileID: 1362958040}
   - component: {fileID: 1362958042}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player1_base1
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2728,7 +2728,7 @@ GameObject:
   - component: {fileID: 1750569517}
   - component: {fileID: 1750569516}
   - component: {fileID: 1750569518}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player1_base2
   m_TagString: Ground
   m_Icon: {fileID: 0}
