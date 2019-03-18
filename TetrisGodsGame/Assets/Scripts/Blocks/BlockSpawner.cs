@@ -34,10 +34,12 @@ public class BlockSpawner : MonoBehaviour
                 _currentBlock.transform.GetChild(i).gameObject.layer = _inactiveBlockLayer;
             }
         }
-            
 
+
+        Vector3 spawnPos = gameObject.transform.position;
+        spawnPos.x += Random.Range(BlockSpawnWidth * -0.5f, BlockSpawnWidth * 0.5f);
         
-        GameObject cached = Instantiate(blockList[Random.Range(0, blockList.Capacity)], gameObject.transform.position, Quaternion.identity);
+        GameObject cached = Instantiate(blockList[Random.Range(0, blockList.Capacity)], spawnPos, Quaternion.identity);
         BlockController block = cached.GetComponent<BlockController>();
         block.Activate(this, player);
      
