@@ -8,13 +8,17 @@ public class PowerBlock : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("HERE");
-        print(other.name);
-        IPowerUp cannon = other.GetComponentInChildren<IPowerUp>();
-        if (cannon != null)
+        if (other != null)
         {
-            cannon.Shoot();
-            cannon = null;
+            print("HERE");
+            print(other.name);
+            IPowerUp cannon = other.GetComponentInChildren<IPowerUp>();
+            if (cannon != null)
+            {
+                cannon.Shoot();
+                cannon = null;
+            }
         }
+       
     }
 }
