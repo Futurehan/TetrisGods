@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -100,7 +100,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba9f400e10cc9c4408038e0b7e8b500c
+      spriteID: 51896096507ffb8449706b1baf6c82c3
       vertices: []
       indices: 
       edges: []
@@ -109,9 +109,9 @@ TextureImporter:
       name: Plattform_Left_1
       rect:
         serializedVersion: 2
-        x: 243
+        x: 154
         y: 0
-        width: 167
+        width: 256
         height: 91
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -120,7 +120,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13c69357f8a6d9843b2b763189e06d74
+      spriteID: 137542a66271c2e488e045d352482823
       vertices: []
       indices: 
       edges: []
