@@ -1,13 +1,12 @@
 fileFormatVersion: 2
-guid: 17d6ef194a179ab4583b19435472be9d
+guid: 43bafc8d62664484db36b0386c6b8ff9
 TextureImporter:
   fileIDToRecycleName:
-    21300000: big_frog_sad_0
-    21300002: big_frog_sad_1
-    21300004: big_frog_sad_2
-    21300006: big_frog_sad_3
-    21300008: big_frog_sad_4
-    21300010: big_frog_sad_5
+    21300000: big_frog_idle_0
+    21300002: big_frog_idle_1
+    21300004: big_frog_idle_2
+    21300006: big_frog_idle_3
+    21300008: big_frog_idle_4
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -90,7 +89,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: big_frog_sad_0
+      name: big_frog_idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -104,13 +103,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa1e3973bf9f47747a008dc85b6fbcbb
+      spriteID: 8bb38bfcb3fb4d843843aa942f9cdbc0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: big_frog_sad_1
+      name: big_frog_idle_1
       rect:
         serializedVersion: 2
         x: 256
@@ -124,13 +123,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3c670a01dc88de44921d6536c560b66
+      spriteID: 7354b291484152647bd44ef9067d9108
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: big_frog_sad_2
+      name: big_frog_idle_2
       rect:
         serializedVersion: 2
         x: 512
@@ -144,13 +143,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f4ca720e97264f42ac702d8a04852a7
+      spriteID: e7b2c07f42eb6d04ebc81b358ef8f469
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: big_frog_sad_3
+      name: big_frog_idle_3
       rect:
         serializedVersion: 2
         x: 768
@@ -164,13 +163,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bc5b7d3af543174b966309f8379e104
+      spriteID: 8a4b72a67754df4418a37988dc349fd2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: big_frog_sad_4
+      name: big_frog_idle_4
       rect:
         serializedVersion: 2
         x: 1024
@@ -184,27 +183,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b991a34a03ddd3a4e880d5e7022c899d
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: big_frog_sad_5
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 0
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8ae87c3ddd9b6d641837d9def02d7772
+      spriteID: 3744be4bd71225b4fa9f0e7e43e316fb
       vertices: []
       indices: 
       edges: []
@@ -212,7 +191,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: af20201b4b44634428319a63f79f1eeb
+    spriteID: 48fe97dcc195b904cbfe8ec948aec577
     vertices: []
     indices: 
     edges: []
