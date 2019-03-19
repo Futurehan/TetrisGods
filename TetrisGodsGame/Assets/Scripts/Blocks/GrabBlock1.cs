@@ -5,6 +5,7 @@ using UnityEngine;
 public class GrabBlock1 : MonoBehaviour, IPowerUp
 {
     public bool pulling = false;
+    public StuckBlock[] stucks;
     public List<Rigidbody> rigidbodies = new List<Rigidbody>();
 
 
@@ -21,14 +22,19 @@ public class GrabBlock1 : MonoBehaviour, IPowerUp
     {
         rigidbodies.Add(b);
     }
+    
     private void OnDestroy()
     {
+        foreach (StuckBlock s in stucks)
+        {
+            Destroy(s);
+        }
         foreach (Rigidbody b in rigidbodies)
         {
             if (b!=null)
             {
-                b.isKinematic = false;
-
+                b.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+                print(b.gameObject.name);
             }
         }
     }

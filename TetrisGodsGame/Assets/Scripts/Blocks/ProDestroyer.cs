@@ -37,12 +37,17 @@ public class ProDestroyer : MonoBehaviour
                     Rigidbody rb = parent.GetChild(i).gameObject.AddComponent<Rigidbody>();
                     rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX;
                 }
+                else if (subBox != collision.gameObject && subBox.GetComponent<Rigidbody>() !=null)
+                {
+                    subBox.GetComponent<Rigidbody>().isKinematic = false;
+                }
 
 
             }
         }
 
         //Destroy collided blocks and count how many
+
         Destroy(collision.gameObject); 
         print(collision + " DESTROYED!!!");
         blocksDestroyed++;
