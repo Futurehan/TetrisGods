@@ -25,10 +25,26 @@ public class StuckBlock : MonoBehaviour
 
         if (master.pulling == true)
         {
-  
-            other.gameObject.GetComponentInParent<Rigidbody>().isKinematic = true;
-            master.AddBody(other.gameObject.GetComponentInParent<Rigidbody>());
+            Rigidbody body = null;
+            body = other.gameObject.GetComponentInParent<Rigidbody>();
+            if (body != null)
+            {
+                master.AddBody(body);
 
+                body.isKinematic = true;
+                print("Making body kinematic");
+
+            }
+            BlockController controller = other.GetComponentInParent<BlockController>();
+            if (controller != null)
+            {
+                if (controller.Active)
+                {
+                    other.GetComponentInParent<BlockController>().Spawn();
+
+                }
+
+            }
 
         }
 

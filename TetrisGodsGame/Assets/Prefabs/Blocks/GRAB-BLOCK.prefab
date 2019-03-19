@@ -322,6 +322,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pulling: 0
+  stucks:
+  - {fileID: 4124645795752245672}
+  - {fileID: 7653874483585938577}
+  - {fileID: 7014806924167778738}
+  - {fileID: 6208001019527376916}
   rigidbodies: []
 --- !u!65 &4016677092959576656
 BoxCollider:

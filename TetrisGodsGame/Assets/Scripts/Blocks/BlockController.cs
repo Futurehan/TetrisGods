@@ -52,7 +52,7 @@ public class BlockController : MonoBehaviour
             Movement(); 
     }
 
-    void Spawn()
+    public void Spawn()
     {
         if (downThrust!=null)
         {
