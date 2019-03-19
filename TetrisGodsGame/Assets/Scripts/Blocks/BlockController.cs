@@ -7,9 +7,12 @@ public class BlockController : MonoBehaviour
 
  
     public bool Active = false;
-    public float spawnTime = 2.0f;
     public List<GameObject> subBlocks;
+    public float forceAmmount = 900.0f;
+    public float thrustAmmount = -100.0f;
+    public float spawnTimer = 2.0f;
 
+    private bool countdownBool = false;
     private bool activateSpawn = false;
     private string verticalID;
     private string horizontalID;
@@ -42,14 +45,24 @@ public class BlockController : MonoBehaviour
 
         body = GetComponent<Rigidbody>();
         box = GetComponent<GameObject>();
-    //    InvokeRepeating("SpawnTimer", 0.0f, 2.0f);
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Active)
-            Movement(); 
+            Movement();
+
+        if (countdownBool)
+        {
+            spawnTimer -= Time.deltaTime;
+            if (spawnTimer <= 0)
+            {
+                Active = false;
+                countdownBool = false;
+                Spawn();
+            }
+        }
     }
 
     public void Spawn()
@@ -60,20 +73,21 @@ public class BlockController : MonoBehaviour
             leftThrust.SetActive(false);
             rightThrust.SetActive(false);
         }
-
-         blockSpawner.CallNext();
-         Active = false;
-         activateSpawn = false;
-        
+        blockSpawner.CallNext();
+        Active = false;
+        activateSpawn = false;
+        this.enabled = false;
     }
 
     private void Movement()
     {
-        Vector3 forceInput = Input.GetAxis(verticalID) * body.transform.up * 900 * Time.deltaTime;
-        Vector3 turnInput = Input.GetAxis(horizontalID)*body.transform.forward * -100 *Time.deltaTime;
-        body.AddTorque(turnInput);
-        body.AddForce(forceInput);
-
+        if (Active)
+        {
+            Vector3 forceInput = Input.GetAxis(verticalID) * body.transform.up * forceAmmount * Time.deltaTime;
+            Vector3 turnInput = Input.GetAxis(horizontalID) * body.transform.forward * thrustAmmount * Time.deltaTime;
+            body.AddTorque(turnInput);
+            body.AddForce(forceInput);
+        }
 
         //Thrust graphic handler
         #region
@@ -135,11 +149,7 @@ public class BlockController : MonoBehaviour
     {
         if (!Active) return;
         if (collision.gameObject.GetComponent<BlockController>() != null && collision.gameObject != gameObject || collision.gameObject.tag == "Ground")
-        {
-            Active = false;
-            Spawn();
-        }
-            
+            countdownBool = true;       
     }
 
     public void Activate(BlockSpawner spawner, GameManager.PlayerIndex ownerId)
@@ -167,21 +177,18 @@ public class BlockController : MonoBehaviour
             Active = false;
             activateSpawn = true;
         }
-
+        spawnTimer = 0.0f;
+        countdownBool = true;
         subBlocks.Remove(childObjectHit);
         Destroy(childObjectHit);
-        if(OnBoxDestruction != null && subBlocks.Count <= 0)
+        if (OnBoxDestruction != null && subBlocks.Count <= 0)
         {
-            print("CALLING NEXT");
-
             OnBoxDestruction.Invoke(this, owner);
             if (!Active && activateSpawn)
             {
                 activateSpawn = true;
                 Spawn();
             }
-     
         }
-           
     }
 }
