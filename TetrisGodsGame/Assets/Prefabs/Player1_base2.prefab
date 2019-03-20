@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 921552929612034344}
   - component: {fileID: 921552929612034345}
   - component: {fileID: 921552929612034347}
-  - component: {fileID: 194278924292294606}
   m_Layer: 8
   m_Name: Player1_base2
   m_TagString: Ground
@@ -94,19 +93,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.56, y: 0.91, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!111 &194278924292294606
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 921552929612034350}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 6bd3fe3047c9049499f20b4dd3f3c317, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 6bd3fe3047c9049499f20b4dd3f3c317, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 1
-  m_CullingType: 0
