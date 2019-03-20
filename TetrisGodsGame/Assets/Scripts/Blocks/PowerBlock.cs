@@ -10,8 +10,6 @@ public class PowerBlock : MonoBehaviour
     {
         if (other != null)
         {
-            print("HERE");
-           // print(other.name);
             IPowerUp cannon = other.GetComponentInChildren<IPowerUp>();
             if (cannon != null)
             {

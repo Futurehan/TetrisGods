@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEditor.Experimental.UIElements;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using  System.Linq;
 
 public class BlockSpawner : MonoBehaviour
 {
@@ -34,6 +35,8 @@ public class BlockSpawner : MonoBehaviour
             for (int i = 0; i < _currentBlock.transform.childCount; i++)
             {
                 _currentBlock.transform.GetChild(i).gameObject.layer = _inactiveBlockLayer;
+                foreach (Collider childCollider in _currentBlock.transform.GetChild(i).GetComponentsInChildren<Collider>())
+                    childCollider.gameObject.layer = _inactiveBlockLayer;
             }
         }
 
@@ -48,6 +51,10 @@ public class BlockSpawner : MonoBehaviour
         for (int i = 0; i < block.transform.childCount; i++)
         {
             block.transform.GetChild(i).gameObject.layer = _activeBlockLayer;
+            foreach (Collider childCollider in block.transform.GetChild(i).GetComponentsInChildren<Collider>())
+                childCollider.gameObject.layer = _activeBlockLayer;
+
+
         }
         _currentBlock = block;
         if(OnSpawner != null)

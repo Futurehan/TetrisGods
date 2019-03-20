@@ -139,7 +139,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 5
-  m_AngularDrag: 5
+  m_AngularDrag: 2.4
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -163,8 +163,8 @@ MonoBehaviour:
   - {fileID: 432372550222168413}
   - {fileID: 4134563156705733556}
   - {fileID: 3346649549953875591}
-  forceAmmount: 900
-  thrustAmmount: -100
+  forceAmmount: 700
+  thrustAmmount: -20
   spawnTimer: 2
   downThrust: {fileID: 6480551130136700114}
   leftThrust: {fileID: 6368550633151684497}
