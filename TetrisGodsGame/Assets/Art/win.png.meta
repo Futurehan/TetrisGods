@@ -1,11 +1,9 @@
 fileFormatVersion: 2
-guid: d03ce4b27ff623e42a28c1ba004ed582
+guid: f727f9fbbc5e6d1448ce8c212592d6ba
 TextureImporter:
   fileIDToRecycleName:
-    21300000: win_screen_0
-    21300002: win_screen_1
-    21300004: win_screen_2
-    21300006: win_screen_3
+    21300000: win_0
+    21300002: win_1
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -88,13 +86,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: win_screen_0
+      name: win_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 364
-        width: 142
-        height: 131
+        x: 23
+        y: 357
+        width: 1317
+        height: 82
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -102,19 +100,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aee6612cab412844cb947725e32b9430
+      spriteID: 684782f418ec32c4ead2c2848bb13cc0
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: win_screen_1
+      name: win_1
       rect:
         serializedVersion: 2
-        x: 181
-        y: 356
-        width: 139
-        height: 148
+        x: 23
+        y: 112
+        width: 1309
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -122,47 +120,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ec44df416ecc1d499501454c2a5f923
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: win_screen_2
-      rect:
-        serializedVersion: 2
-        x: 28
-        y: 250
-        width: 281
-        height: 57
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1cea2885d74e1c6479a5e72eb1976a29
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: win_screen_3
-      rect:
-        serializedVersion: 2
-        x: 13
-        y: 142
-        width: 477
-        height: 94
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4376d1d28a6ee2d4ea52e939cc2156af
+      spriteID: 6c2458f0765309049bc5452005aab56b
       vertices: []
       indices: 
       edges: []
@@ -170,7 +128,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b681cc1cfad35474c93387a7daa6030a
+    spriteID: 49c6c825d3c375140b36886cc89f4cf2
     vertices: []
     indices: 
     edges: []
