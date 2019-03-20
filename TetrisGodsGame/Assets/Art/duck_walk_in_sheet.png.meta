@@ -1,7 +1,19 @@
 fileFormatVersion: 2
 guid: 7f384978cd16b8048856654bf52418ad
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: duck_walk_in_sheet_0
+    21300002: duck_walk_in_sheet_1
+    21300004: duck_walk_in_sheet_2
+    21300006: duck_walk_in_sheet_3
+    21300008: duck_walk_in_sheet_4
+    21300010: duck_walk_in_sheet_5
+    21300012: duck_walk_in_sheet_6
+    21300014: duck_walk_in_sheet_7
+    21300016: duck_walk_in_sheet_8
+    21300018: duck_walk_in_sheet_9
+    21300020: duck_walk_in_sheet_10
+    21300022: duck_walk_in_sheet_11
   externalObjects: {}
   serializedVersion: 9
   mipmaps:
@@ -31,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -40,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -63,7 +75,29 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -71,7 +105,247 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: duck_walk_in_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 46
+        width: 34
+        height: 38
+      alignment: 9
+      pivot: {x: 0.3, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 638a988dd68028445baa596cd02cefe8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: duck_walk_in_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 46
+        width: 33
+        height: 39
+      alignment: 9
+      pivot: {x: 0.3, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bff9f5531a4432148bf3a1f96f001653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: duck_walk_in_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 46
+        width: 34
+        height: 38
+      alignment: 9
+      pivot: {x: 0.3, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b42f129a5d7fe8d4db885881504e2752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: duck_walk_in_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 46
+        width: 33
+        height: 39
+      alignment: 9
+      pivot: {x: 0.3, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03f9f6106244ba84a9f806ed5706ae7a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: duck_walk_in_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 46
+        width: 34
+        height: 38
+      alignment: 9
+      pivot: {x: 0.3, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 825b70c49d8e1f344813ecab83cc4448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: duck_walk_in_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 46
+        width: 33
+        height: 39
+      alignment: 9
+      pivot: {x: 0.3, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 328d4b1e12b67d74e9e2c116d6443cfb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: duck_walk_in_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 46
+        width: 29
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 259fbc14f71a4764bad21bec469b07c0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: duck_walk_in_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 46
+        width: 34
+        height: 38
+      alignment: 9
+      pivot: {x: 0.8, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b100febdb26a294b994e57495e77477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: duck_walk_in_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 46
+        width: 33
+        height: 39
+      alignment: 9
+      pivot: {x: 0.8, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38ad15f59572b2c4f840bf647b451324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: duck_walk_in_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 46
+        width: 34
+        height: 38
+      alignment: 9
+      pivot: {x: 0.8, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f39f3587ff5436b4598607a4a8beb4f2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: duck_walk_in_sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1293
+        y: 46
+        width: 33
+        height: 39
+      alignment: 9
+      pivot: {x: 0.8, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94d195ba767dd9341824878b648e6ef2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: duck_walk_in_sheet_11
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 46
+        width: 34
+        height: 38
+      alignment: 9
+      pivot: {x: 0.8, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 065a6f2da1046d04ab8ffa636cad0e64
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
