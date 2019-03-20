@@ -258,7 +258,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300014, guid: 4b9d81c3833c3da40890a2b8541e782d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 461eb6ea9ba00f6469a3eefc29585c74, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -347,8 +347,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Active: 0
-  spawnTime: 2
   subBlocks: []
+  forceAmmount: 900
+  thrustAmmount: -100
+  spawnTimer: 2
   downThrust: {fileID: 6913269383582421856}
   leftThrust: {fileID: 7707091154443498982}
   rightThrust: {fileID: 347737592812369424}
@@ -421,7 +423,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300014, guid: 4b9d81c3833c3da40890a2b8541e782d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 461eb6ea9ba00f6469a3eefc29585c74, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
