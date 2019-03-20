@@ -40,18 +40,10 @@ public class GameManager : MonoBehaviour
     
     private BlockLists BlockList;
     private Dictionary<PlayerIndex, int> PlayerScore;
-    public bool IsPaused { get; private set; }
+    public static bool IsPaused { get; private set; }
     private float CurrentTime;
     private GameplaySettings Settings;
     private GameObject _floorTag;
-
-
-
-    private void Awake()
-    {
-        IsPaused = true;
-    }
-
 
     private void Setup()
     {
@@ -78,8 +70,8 @@ public class GameManager : MonoBehaviour
             _floorTag = new GameObject();
             _floorTag.tag = "Floor";
         }
-        
-  
+
+        CurrentTime = 0;
         IsPaused = false;
     }
 
