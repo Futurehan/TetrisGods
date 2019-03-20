@@ -27,6 +27,8 @@ public class BlockSpawner : MonoBehaviour
 
     public void CallNext()
     {
+        if (GameManager.IsPaused) return;
+
         if (_currentBlock)
         {
             for (int i = 0; i < _currentBlock.transform.childCount; i++)

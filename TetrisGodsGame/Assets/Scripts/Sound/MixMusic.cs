@@ -8,7 +8,8 @@ public class MixMusic : MonoBehaviour
     public AudioSource piano;
     public AudioSource classic;
     public AudioSource dance;
-    public AudioSource onClickSound;
+    public AudioSource onClickSoundSourcec;
+    public AudioClip clickSound;
     public bool keepFadingIn;
     public bool keepFadingOut;
 
@@ -17,7 +18,8 @@ public class MixMusic : MonoBehaviour
     private void Start()
     {
         //set chosen music to full volume
-        chip.volume = musicVolume;
+        StartCoroutine(FadeIn(chip, 0.08f, musicVolume));
+        //chip.volume = musicVolume;
         //set other music tracks to zero volume
         piano.volume = 0f;
         classic.volume = 0f;
@@ -29,7 +31,7 @@ public class MixMusic : MonoBehaviour
     public void Chiptune()
     {
         //Play button sound
-        onClickSound.Play();
+        onClickSoundSourcec.PlayOneShot(clickSound);
         //start fade in corutine
         StartCoroutine(FadeIn(chip, 0.08f, musicVolume));
         //start fade out corutines
@@ -40,16 +42,16 @@ public class MixMusic : MonoBehaviour
 
     public void Piano()
     {
-        onClickSound.Play();
         StartCoroutine(FadeIn(piano, 0.08f, musicVolume));
         StartCoroutine(FadeOut(chip, 0.08f, 0));
         StartCoroutine(FadeOut(classic, 0.08f, 0));
         StartCoroutine(FadeOut(dance, 0.08f, 0));
+        onClickSoundSourcec.PlayOneShot(clickSound);
     }
 
     public void Classic()
     {
-        onClickSound.Play();
+        onClickSoundSourcec.PlayOneShot(clickSound);
         StartCoroutine(FadeIn(classic, 0.08f, musicVolume));
         StartCoroutine(FadeOut(chip, 0.08f, 0));
         StartCoroutine(FadeOut(piano, 0.08f, 0));
@@ -58,7 +60,7 @@ public class MixMusic : MonoBehaviour
 
     public void DanceDance()
     {
-        onClickSound.Play();
+        onClickSoundSourcec.PlayOneShot(clickSound);
         StartCoroutine(FadeIn(dance, 0.08f, musicVolume));
         StartCoroutine(FadeOut(chip, 0.08f, 0));
         StartCoroutine(FadeOut(classic, 0.08f, 0));
