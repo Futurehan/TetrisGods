@@ -158,12 +158,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Active: 0
-  spawnTime: 2
   subBlocks:
   - {fileID: 7740823800287877100}
   - {fileID: 432372550222168413}
   - {fileID: 4134563156705733556}
   - {fileID: 3346649549953875591}
+  forceAmmount: 900
+  thrustAmmount: -100
+  spawnTimer: 2
   downThrust: {fileID: 6480551130136700114}
   leftThrust: {fileID: 6368550633151684497}
   rightThrust: {fileID: 7224923827650488483}
