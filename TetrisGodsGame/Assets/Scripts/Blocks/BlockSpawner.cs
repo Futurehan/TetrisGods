@@ -60,7 +60,7 @@ public class BlockSpawner : MonoBehaviour
         if (!Physics.BoxCast(transform.position, new Vector3(BlockSpawnWidth * 0.5f, 0), Vector3.down, out hit, Quaternion.identity, 1000 , 1 << _inactiveBlockLayer ))
             return Vector3.negativeInfinity;
 
-        Debug.Log("Object hit: " + hit.transform.gameObject);
+//        Debug.Log("Object hit: " + hit.transform.gameObject);
         
        return hit.point;
     }

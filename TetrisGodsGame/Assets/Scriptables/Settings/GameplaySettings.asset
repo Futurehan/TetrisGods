@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86de7121b3ff42944b80fdc1015a7143, type: 3}
   m_Name: GameplaySettings
   m_EditorClassIdentifier: 
-  RoundTime: 10
+  RoundTime: 60
   MaxBlockSpawnInterval: 0
   BlockSpawnInterval:
     serializedVersion: 2

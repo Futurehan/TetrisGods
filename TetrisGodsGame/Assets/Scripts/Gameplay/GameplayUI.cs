@@ -14,10 +14,12 @@ public class GameplayUI : MonoBehaviour
         GameManager.RoundOver += ShowWinner;
     }
 
-    private void ShowWinner()
+    private void ShowWinner(GameManager.PlayerIndex obj)
     {
-        throw new NotImplementedException();
+    
     }
+
+
 
     // Update is called once per frame
     void Update()
