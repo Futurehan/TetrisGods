@@ -37,7 +37,7 @@ public class QuakeBlock : MonoBehaviour , IPowerUp
             }
         }
 
-        targetPlatform.GetComponent<Animation>().Play();
+        targetPlatform.GetComponentInChildren<Animation>().Play();
 
     }
 
