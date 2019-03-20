@@ -155,6 +155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09168fe33f8826445913696b93a2a7ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 8651750273114321284, guid: 6623cf41d07f45943b32cfd4d4081a72,
+    type: 3}
   blocksToDestroy: 7
 --- !u!1 &8921872896704242663
 GameObject:
