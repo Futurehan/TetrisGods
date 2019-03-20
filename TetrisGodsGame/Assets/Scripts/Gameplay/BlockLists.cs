@@ -30,7 +30,7 @@ public class BlockLists : MonoBehaviour
         if (block != null)
         {
             spawnedBlocks.Add(block);
-            Debug.Log(PlayerBlocks.Count);
+           // Debug.Log(PlayerBlocks.Count);
             PlayerBlocks[player].Add(block);
             block.OnBoxDestruction += RemovedBlock;
         }
