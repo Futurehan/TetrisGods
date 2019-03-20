@@ -21,6 +21,6 @@ public class PlayerUI : MonoBehaviour
     {
         float height = GameManager.GetDistanceToFloor(_playerBlockSpawner.GetTopMostPoint());
         height = Mathf.Round(height * 100) / 100;    
-        _heightText.text = "HEIGHT: " + (float.IsInfinity(height) ? 0 : height);
+        _heightText.text = "" + (float.IsInfinity(height) ? 0 : height);
     }
 }
