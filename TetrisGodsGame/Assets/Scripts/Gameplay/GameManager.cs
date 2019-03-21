@@ -55,9 +55,9 @@ public class GameManager : MonoBehaviour
     private void Setup()
     {
         Debug.Log("Set up");
-        
-        Settings = Instantiate(AssetDatabase.LoadAssetAtPath<GameplaySettings>("Assets/Scriptables/Settings/GameplaySettings.asset"));
-        
+
+        Settings = Resources.Load<GameplaySettings>("GameplaySettings");
+        Debug.Log($"Settings{Settings}");
         PlayerScore = new Dictionary<PlayerIndex, int>();
         
         for (int i = 0; i < (int)PlayerIndex.Two; i++)
