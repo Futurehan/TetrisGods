@@ -2003,6 +2003,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: tiny_duck_sheet_0
       objectReference: {fileID: 0}
+    - target: {fileID: 1861259628130931554, guid: 124a8018a8066c648b6c68c3464c54fa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1861259628130931559, guid: 124a8018a8066c648b6c68c3464c54fa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3575,7 +3580,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574052066}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a3bade2a97f2bc84e9ce0826bcf44de7, type: 3}
   m_Name: 
