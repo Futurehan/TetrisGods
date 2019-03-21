@@ -20,7 +20,7 @@ public class BlockSpawner : MonoBehaviour
     private GameObject _nextBlock;
     
     // Start is called before the first frame update
-    void OnEnable()
+    void Start()
     {
         if (GameManager.IsPaused) GameManager.SetupGame();   
         CallNext();
@@ -35,7 +35,12 @@ public class BlockSpawner : MonoBehaviour
         }
 
         if (_nextBlock == null)
+        {
             _nextBlock = blockList[Random.Range(0, blockList.Capacity)];
+            OnNextBlockShow?.Invoke(_nextBlock);
+      
+        }
+      
   
 
         if (_currentBlock)
