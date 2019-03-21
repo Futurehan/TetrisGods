@@ -9,6 +9,7 @@ TagManager:
   - Music
   - MiddleWall
   - 1
+  - Destroyer
   layers:
   - Default
   - TransparentFX
