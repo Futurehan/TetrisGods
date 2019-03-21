@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
         IsPaused = false;
     }
 
-    private static void SetupGame()
+    public static void SetupGame()
     {
         _instance.Setup();
     }
