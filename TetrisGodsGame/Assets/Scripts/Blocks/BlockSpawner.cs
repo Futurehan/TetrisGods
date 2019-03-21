@@ -5,6 +5,7 @@ using UnityEditor;
 using UnityEditor.Experimental.UIElements;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using  System.Linq;
 
 public class BlockSpawner : MonoBehaviour
 {
@@ -27,11 +28,15 @@ public class BlockSpawner : MonoBehaviour
 
     public void CallNext()
     {
+        if (GameManager.IsPaused) return;
+
         if (_currentBlock)
         {
             for (int i = 0; i < _currentBlock.transform.childCount; i++)
             {
                 _currentBlock.transform.GetChild(i).gameObject.layer = _inactiveBlockLayer;
+                foreach (Collider childCollider in _currentBlock.transform.GetChild(i).GetComponentsInChildren<Collider>())
+                    childCollider.gameObject.layer = _inactiveBlockLayer;
             }
         }
 
@@ -46,6 +51,10 @@ public class BlockSpawner : MonoBehaviour
         for (int i = 0; i < block.transform.childCount; i++)
         {
             block.transform.GetChild(i).gameObject.layer = _activeBlockLayer;
+            foreach (Collider childCollider in block.transform.GetChild(i).GetComponentsInChildren<Collider>())
+                childCollider.gameObject.layer = _activeBlockLayer;
+
+
         }
         _currentBlock = block;
         if(OnSpawner != null)
@@ -58,7 +67,7 @@ public class BlockSpawner : MonoBehaviour
         if (!Physics.BoxCast(transform.position, new Vector3(BlockSpawnWidth * 0.5f, 0), Vector3.down, out hit, Quaternion.identity, 1000 , 1 << _inactiveBlockLayer ))
             return Vector3.negativeInfinity;
 
-        Debug.Log("Object hit: " + hit.transform.gameObject);
+//        Debug.Log("Object hit: " + hit.transform.gameObject);
         
        return hit.point;
     }

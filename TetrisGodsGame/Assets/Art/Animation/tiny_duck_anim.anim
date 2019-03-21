@@ -25,8 +25,10 @@ AnimationClip:
       value: {fileID: 21300002, guid: b54161c4340af9e4cac9d8ff1b74e48f, type: 3}
     - time: 0.41666666
       value: {fileID: 21300004, guid: b54161c4340af9e4cac9d8ff1b74e48f, type: 3}
+    - time: 0.5
+      value: {fileID: 21300000, guid: b54161c4340af9e4cac9d8ff1b74e48f, type: 3}
     attribute: m_Sprite
-    path: 
+    path: DuckSprite
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 12
@@ -37,7 +39,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 0
+      path: 2588532090
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -47,12 +49,13 @@ AnimationClip:
     - {fileID: 21300000, guid: b54161c4340af9e4cac9d8ff1b74e48f, type: 3}
     - {fileID: 21300002, guid: b54161c4340af9e4cac9d8ff1b74e48f, type: 3}
     - {fileID: 21300004, guid: b54161c4340af9e4cac9d8ff1b74e48f, type: 3}
+    - {fileID: 21300000, guid: b54161c4340af9e4cac9d8ff1b74e48f, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 0.5833333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

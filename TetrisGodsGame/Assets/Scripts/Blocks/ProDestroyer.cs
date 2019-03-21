@@ -6,6 +6,7 @@ public class ProDestroyer : MonoBehaviour
 {
     Rigidbody body;
     BoxCollider boxy;
+    public GameObject explosion;
     public int blocksToDestroy;
     int blocksDestroyed;
     private void Awake()
@@ -48,8 +49,8 @@ public class ProDestroyer : MonoBehaviour
 
         //Destroy collided blocks and count how many
 
-        Destroy(collision.gameObject); 
-        print(collision + " DESTROYED!!!");
+        Destroy(collision.gameObject);
+        Instantiate(explosion,collision.gameObject.transform.position,Quaternion.identity);
         blocksDestroyed++;
     }
 }

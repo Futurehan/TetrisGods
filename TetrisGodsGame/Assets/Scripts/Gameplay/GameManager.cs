@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using System.Linq; 
 
 public class GameManager : MonoBehaviour
 {   
@@ -35,23 +36,21 @@ public class GameManager : MonoBehaviour
         }
     }
          
-    public static Action RoundOver;
+    public static Action<PlayerIndex> RoundOver;
 //    public static Action 
     
     private BlockLists BlockList;
     private Dictionary<PlayerIndex, int> PlayerScore;
-    public bool IsPaused { get; private set; }
+    public static bool IsPaused { get; private set; }
     private float CurrentTime;
     private GameplaySettings Settings;
     private GameObject _floorTag;
 
+    public static float RoundTime => _instance.CurrentTime;
+    public static float MaxTime => _instance.Settings.RoundTime;
 
-
-    private void Awake()
-    {
-        IsPaused = true;
-    }
-
+    private BlockSpawner PlayerOneSpawner => FindObjectsOfType<BlockSpawner>().FirstOrDefault(spawner => spawner.player == PlayerIndex.One);
+    private BlockSpawner PlayerTwoSpawner => FindObjectsOfType<BlockSpawner>().FirstOrDefault(spawner => spawner.player == PlayerIndex.Two);
 
     private void Setup()
     {
@@ -78,8 +77,8 @@ public class GameManager : MonoBehaviour
             _floorTag = new GameObject();
             _floorTag.tag = "Floor";
         }
-        
-  
+
+        CurrentTime = 0;
         IsPaused = false;
     }
 
@@ -124,21 +123,28 @@ public class GameManager : MonoBehaviour
         return blocks[index];
     }
 
+    public static BlockSpawner GetPlayerSpawner(PlayerIndex player)
+    {
+        if (player == PlayerIndex.One)
+            return _instance.PlayerOneSpawner;
+
+        if (player == PlayerIndex.Two)
+            return _instance.PlayerTwoSpawner;
+
+        return null;
+    }
+
     public static float GetDistanceToFloor(Vector3 point)
     {
-        return Mathf.Abs(_instance._floorTag.transform.position.y - point.y);
+        return float.IsNegativeInfinity(point.y) ? 0 : Mathf.Abs(_instance._floorTag.transform.position.y - point.y);
     }
 
-    public static float GetCurrentRoundTime()
+    public static void CompleteGame(PlayerIndex winner)
     {
-        return _instance.CurrentTime;
+        RoundOver?.Invoke(winner);
+        IsPaused = true;
     }
 
-    public static float GetRoundMaxTime()
-    {
-        return _instance.Settings.RoundTime;
-    }
-    
     void Update()
     {
         if (IsPaused) return;
@@ -148,7 +154,13 @@ public class GameManager : MonoBehaviour
           
         if (CurrentTime > Settings.RoundTime)
         {
-            RoundOver?.Invoke();
+            PlayerIndex winner = PlayerIndex.Noll;
+            if (GetPlayerSpawner(PlayerIndex.One).GetTopMostPoint().y > GetPlayerSpawner(PlayerIndex.Two).GetTopMostPoint().y)
+                winner = PlayerIndex.One;
+            else
+                winner = PlayerIndex.Two;
+
+                RoundOver?.Invoke(winner);
             Debug.Log("Round over!");
             IsPaused = true;
         }

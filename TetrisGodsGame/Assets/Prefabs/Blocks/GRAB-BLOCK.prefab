@@ -142,7 +142,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 601763713780654381}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 5
   m_AngularDrag: 5
   m_UseGravity: 1
@@ -164,8 +164,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Active: 0
   subBlocks: []
-  forceAmmount: 900
-  thrustAmmount: -100
+  forceAmmount: 4500
+  thrustAmmount: -300
   spawnTimer: 2
   downThrust: {fileID: 4037941591245996893}
   leftThrust: {fileID: 597930602347753037}

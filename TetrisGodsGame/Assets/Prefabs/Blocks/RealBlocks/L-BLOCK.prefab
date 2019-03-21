@@ -47,7 +47,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 5
-  m_AngularDrag: 5
+  m_AngularDrag: 2.4
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -67,8 +67,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Active: 0
   subBlocks: []
-  forceAmmount: 900
-  thrustAmmount: -100
+  forceAmmount: 700
+  thrustAmmount: -20
   spawnTimer: 2
   downThrust: {fileID: 1919063293032119163}
   leftThrust: {fileID: 3943077399670539143}
