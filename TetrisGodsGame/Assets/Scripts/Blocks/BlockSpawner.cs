@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -14,10 +15,12 @@ public class BlockSpawner : MonoBehaviour
 
     private int _activeBlockLayer = 10;
     private int _inactiveBlockLayer = 9;
-    
+
+    public Action<GameObject> OnNextBlockShow;
+    private GameObject _nextBlock;
     
     // Start is called before the first frame update
-    void OnEnable()
+    void Start()
     {
         if (GameManager.IsPaused) GameManager.SetupGame();   
         CallNext();
@@ -30,6 +33,15 @@ public class BlockSpawner : MonoBehaviour
             Debug.Log("Paused");
             return;
         }
+
+        if (_nextBlock == null)
+        {
+            _nextBlock = blockList[Random.Range(0, blockList.Capacity)];
+            OnNextBlockShow?.Invoke(_nextBlock);
+      
+        }
+      
+  
 
         if (_currentBlock)
         {
@@ -45,7 +57,7 @@ public class BlockSpawner : MonoBehaviour
         Vector3 spawnPos = gameObject.transform.position;
         spawnPos.x += Random.Range(BlockSpawnWidth * -0.5f, BlockSpawnWidth * 0.5f);
         
-        GameObject cached = Instantiate(blockList[Random.Range(0, blockList.Capacity)], spawnPos, Quaternion.identity);
+        GameObject cached = Instantiate(_nextBlock, spawnPos, Quaternion.identity);
         BlockController block = cached.GetComponent<BlockController>();
         block.Activate(this, player);
      
@@ -60,6 +72,10 @@ public class BlockSpawner : MonoBehaviour
         _currentBlock = block;
         if(OnSpawner != null)
             OnSpawner.Invoke(block, player);
+       
+        //Setting new block
+        _nextBlock = _nextBlock = blockList[Random.Range(0, blockList.Capacity)];
+        OnNextBlockShow?.Invoke(_nextBlock);
     }
 
     public Vector3 GetTopMostPoint()
