@@ -6,6 +6,7 @@ public class GrabBlock1 : MonoBehaviour, IPowerUp
 {
     public bool pulling = false;
     public StuckBlock[] stucks;
+    public GameObject explosion;
     public List<Rigidbody> rigidbodies = new List<Rigidbody>();
 
 
@@ -22,12 +23,21 @@ public class GrabBlock1 : MonoBehaviour, IPowerUp
     {
         rigidbodies.Add(b);
     }
+    public void Death()
+    {
+        Destroy(gameObject);
+        print("BOOM");
+    }
     
     private void OnDestroy()
     {
         foreach (StuckBlock s in stucks)
         {
-            Destroy(s);
+            if (s!=null)
+            {
+                Destroy(s);
+                print("Boom");
+            }
         }
         foreach (Rigidbody b in rigidbodies)
         {

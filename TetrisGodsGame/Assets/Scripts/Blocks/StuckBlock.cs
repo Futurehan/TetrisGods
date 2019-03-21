@@ -19,9 +19,20 @@ public class StuckBlock : MonoBehaviour
     {
         
     }
+    private void OnDestroy()
+    {
+        if (master !=null)
+        {
+            master.Death();
+
+        }
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {
+ 
+      
 
         if (master.pulling == true)
         {
