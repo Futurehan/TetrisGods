@@ -25,16 +25,19 @@ public class GrabBlock1 : MonoBehaviour, IPowerUp
     }
     public void Death()
     {
-        Instantiate(explosion,transform.position,Quaternion.identity);
         Destroy(gameObject);
+        print("BOOM");
     }
     
     private void OnDestroy()
     {
         foreach (StuckBlock s in stucks)
         {
-
-            Destroy(s);
+            if (s!=null)
+            {
+                Destroy(s);
+                print("Boom");
+            }
         }
         foreach (Rigidbody b in rigidbodies)
         {

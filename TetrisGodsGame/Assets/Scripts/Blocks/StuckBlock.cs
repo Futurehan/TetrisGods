@@ -19,13 +19,20 @@ public class StuckBlock : MonoBehaviour
     {
         
     }
+    private void OnDestroy()
+    {
+        if (master !=null)
+        {
+            master.Death();
+
+        }
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Destroyer")
-        {
-            master.Death();
-        }
+ 
+      
 
         if (master.pulling == true)
         {
