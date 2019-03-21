@@ -31,6 +31,9 @@ public class BlockController : MonoBehaviour
     public GameObject leftThrust;
     public GameObject rightThrust;
 
+    public AudioSource thrusterSFX;
+    public AudioSource impactSFX;
+
     //Delegates
     public delegate void OnDestruction(BlockController boxObject, GameManager.PlayerIndex player);
     public OnDestruction OnBoxDestruction;
@@ -72,6 +75,7 @@ public class BlockController : MonoBehaviour
             downThrust.SetActive(false);
             leftThrust.SetActive(false);
             rightThrust.SetActive(false);
+            thrusterSFX.Stop();
         }
         blockSpawner.CallNext();
         Active = false;
@@ -87,11 +91,19 @@ public class BlockController : MonoBehaviour
             Vector3 turnInput = Input.GetAxis(horizontalID) * body.transform.forward * thrustAmmount * Time.deltaTime;
             body.AddTorque(turnInput);
             body.AddForce(forceInput);
+            
         }
 
+        Vector2 input = new Vector2(Input.GetAxis(horizontalID), Input.GetAxis(verticalID));
+
+        if (input.magnitude > 0 && !thrusterSFX.isPlaying)
+            thrusterSFX.Play();
+        else if(input.magnitude <= 0)
+            thrusterSFX.Stop();
+
         //Thrust graphic handler
-        #region
-        if (Input.GetAxis(verticalID) != 0)
+            #region
+        if (input.y > 0)
         {
             if (downThrust.transform.localScale.y < 1)
             {
@@ -108,7 +120,7 @@ public class BlockController : MonoBehaviour
                 thrustLerpDistance = thrustLerpDistance - thrustLerpSpeed * Time.deltaTime;
             }
         }
-        if (Input.GetAxis(horizontalID) !=0)
+        if (input.x > 0)
         {
             if (Input.GetAxis(horizontalID) > 0)
             {
@@ -149,7 +161,8 @@ public class BlockController : MonoBehaviour
     {
         if (!Active) return;
         if (collision.gameObject.GetComponent<BlockController>() != null && collision.gameObject != gameObject || collision.gameObject.tag == "Ground")
-            countdownBool = true;       
+            countdownBool = true;
+        impactSFX.Play();
     }
 
     public void Activate(BlockSpawner spawner, GameManager.PlayerIndex ownerId)

@@ -8,10 +8,12 @@ public class GrabBlock1 : MonoBehaviour, IPowerUp
     public StuckBlock[] stucks;
     public GameObject explosion;
     public List<Rigidbody> rigidbodies = new List<Rigidbody>();
+    public AudioSource bzztSFX;
 
 
     public void Shoot()
     {
+        bzztSFX.Play();
         GetComponentInParent<Rigidbody>().isKinematic = true;
         if (GetComponentInParent<BlockController>().Active == true)
         {
