@@ -72,6 +72,9 @@ MonoBehaviour:
   forceAmmount: 700
   thrustAmmount: -20
   spawnTimer: 2
+  blockLayers:
+    serializedVersion: 2
+    m_Bits: 9728
   downThrust: {fileID: 1919063293032119163}
   leftThrust: {fileID: 3943077399670539143}
   rightThrust: {fileID: 8432090694014787690}
