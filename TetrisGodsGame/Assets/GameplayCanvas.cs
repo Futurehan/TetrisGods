@@ -9,6 +9,7 @@ public class GameplayCanvas : MonoBehaviour
     public GameObject VictoryPanel;
     public GameObject PausePanel;
     public Image VictoryImage;
+    public AudioSource winSound;
 
     [Header("Images")]
     public Sprite playerOneImage;
@@ -27,7 +28,7 @@ public class GameplayCanvas : MonoBehaviour
     private void ShowVictoryScreen(GameManager.PlayerIndex winner)
     {
         VictoryImage.sprite = winner == GameManager.PlayerIndex.One ? playerOneImage : playerTwoImage;
-
+        winSound.Play();
         VictoryPanel.SetActive(true);
         PausePanel.SetActive(false);
     }
