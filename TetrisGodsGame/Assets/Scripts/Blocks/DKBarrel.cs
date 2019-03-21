@@ -29,7 +29,7 @@ public class DKBarrel : MonoBehaviour
 
     public void Fire(Vector3 forceDirection)
     {
-        Vector3 shootForce = forceDirection.normalized * 10f;
+        Vector3 shootForce = forceDirection.normalized * 110f;
         body.AddForce(shootForce,ForceMode.Impulse);
         StartCoroutine(startTimer());
     }

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections;
+﻿
 using System.Collections.Generic;
-using UnityEditor;
-using UnityEditor.Experimental.UIElements;
 using UnityEngine;
 using Random = UnityEngine.Random;
-using  System.Linq;
 
 public class BlockSpawner : MonoBehaviour
 {
@@ -21,14 +17,19 @@ public class BlockSpawner : MonoBehaviour
     
     
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
+        if (GameManager.IsPaused) GameManager.SetupGame();   
         CallNext();
     }
 
     public void CallNext()
     {
-        if (GameManager.IsPaused) return;
+        if (GameManager.IsPaused)
+        {
+            Debug.Log("Paused");
+            return;
+        }
 
         if (_currentBlock)
         {
