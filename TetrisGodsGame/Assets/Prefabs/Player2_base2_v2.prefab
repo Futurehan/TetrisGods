@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3262511628778897472}
   - component: {fileID: 8817593259457194539}
   - component: {fileID: 623418484058399258}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: mini_duck_sheet1_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7979479149618338498}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Player2_base2_v2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,6 +157,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player2_base2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4552484969187160781, guid: 577f7870691efdd41bb968cedda81e92,
+        type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 4552484969187160819, guid: 577f7870691efdd41bb968cedda81e92,
         type: 3}
