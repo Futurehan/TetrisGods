@@ -7,7 +7,10 @@ public class DKBarrel : MonoBehaviour
     Rigidbody body;
     public GameObject thrustEffect;
     private bool active = false;
+    public AudioSource thrusterSFX;
+
     private void Awake()
+    
     {
         body = GetComponent<Rigidbody>();
     }
@@ -16,9 +19,11 @@ public class DKBarrel : MonoBehaviour
     {
         if (active == true)
         {
+            
             if (body.velocity.magnitude < 0.1f)
             {
                 thrustEffect.SetActive(false);
+                
 
             }
 
@@ -32,6 +37,7 @@ public class DKBarrel : MonoBehaviour
         Vector3 shootForce = forceDirection.normalized * 110f;
         body.AddForce(shootForce,ForceMode.Impulse);
         StartCoroutine(startTimer());
+        thrusterSFX.Play();
     }
 
     private IEnumerator startTimer()

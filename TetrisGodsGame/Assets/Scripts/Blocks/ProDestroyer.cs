@@ -9,6 +9,8 @@ public class ProDestroyer : MonoBehaviour
     public GameObject explosion;
     public int blocksToDestroy;
     int blocksDestroyed;
+    public AudioSource splosionSFX;
+
     private void Awake()
     {
         body = GetComponent<Rigidbody>();
@@ -50,6 +52,7 @@ public class ProDestroyer : MonoBehaviour
         //Destroy collided blocks and count how many
 
         Destroy(collision.gameObject);
+        splosionSFX.Play();
         Instantiate(explosion,collision.gameObject.transform.position,Quaternion.identity);
         blocksDestroyed++;
     }
