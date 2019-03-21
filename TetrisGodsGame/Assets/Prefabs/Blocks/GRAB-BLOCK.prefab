@@ -329,6 +329,8 @@ MonoBehaviour:
   - {fileID: 7653874483585938577}
   - {fileID: 7014806924167778738}
   - {fileID: 6208001019527376916}
+  explosion: {fileID: 8651750273114321284, guid: 6623cf41d07f45943b32cfd4d4081a72,
+    type: 3}
   rigidbodies: []
 --- !u!65 &4016677092959576656
 BoxCollider:

@@ -22,6 +22,10 @@ public class StuckBlock : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.tag == "Destroyer")
+        {
+            master.Death();
+        }
 
         if (master.pulling == true)
         {
