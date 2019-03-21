@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 50
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -94,17 +94,17 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 394
-        width: 137
-        height: 146
+        y: 390
+        width: 146
+        height: 147
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 870e0516da0705a45bfc59f383af7e95
+      spriteID: d816a98842050144d9ed115c2b1a2975
       vertices: []
       indices: 
       edges: []
@@ -113,18 +113,18 @@ TextureImporter:
       name: victory_1
       rect:
         serializedVersion: 2
-        x: 146
-        y: 386
-        width: 145
-        height: 154
+        x: 155
+        y: 379
+        width: 140
+        height: 152
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e0a2be33b1fe3945beab33a82a4b251
+      spriteID: fde68342c02c927488282f1a8b75cd9e
       vertices: []
       indices: 
       edges: []
@@ -133,18 +133,18 @@ TextureImporter:
       name: victory_2
       rect:
         serializedVersion: 2
-        x: 331
-        y: 426
-        width: 307
-        height: 69
+        x: 325
+        y: 416
+        width: 314
+        height: 85
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5d0ad66d7d4eea44e89bf723ef9c3fca
+      spriteID: edfdc004817e73b40b0512e7494e03d4
       vertices: []
       indices: 
       edges: []
@@ -153,18 +153,18 @@ TextureImporter:
       name: victory_3
       rect:
         serializedVersion: 2
-        x: 16
-        y: 251
-        width: 460
-        height: 109
+        x: 18
+        y: 248
+        width: 486
+        height: 137
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef7c2450f9f0d7b46b5d79bd29c779cb
+      spriteID: 583ced3a573db4248b5afabe769d71e5
       vertices: []
       indices: 
       edges: []
@@ -184,7 +184,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 83d06e81a1a299b4893e85739ae05b0e
+      spriteID: 43bee4ff64264db44aaab281481ca106
       vertices: []
       indices: 
       edges: []
@@ -204,7 +204,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c97f87de89a1d8f41b5b9954639991fa
+      spriteID: 0207c62cdcd3a844e93c02955b5e1552
       vertices: []
       indices: 
       edges: []
@@ -212,7 +212,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: f0f09d81c34fa684d98c0910160ae692
+    spriteID: 8b89419d42473004cb0ee8d3bc5c6c33
     vertices: []
     indices: 
     edges: []
