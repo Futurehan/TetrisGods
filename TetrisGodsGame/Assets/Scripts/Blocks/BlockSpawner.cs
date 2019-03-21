@@ -21,14 +21,19 @@ public class BlockSpawner : MonoBehaviour
     
     
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
+        if (GameManager.IsPaused) GameManager.SetupGame();   
         CallNext();
     }
 
     public void CallNext()
     {
-        if (GameManager.IsPaused) return;
+        if (GameManager.IsPaused)
+        {
+            Debug.Log("Paused");
+            return;
+        }
 
         if (_currentBlock)
         {
