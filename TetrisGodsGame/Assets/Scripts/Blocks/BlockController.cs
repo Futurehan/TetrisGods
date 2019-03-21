@@ -12,6 +12,8 @@ public class BlockController : MonoBehaviour
     public float thrustAmmount = -100.0f;
     public float spawnTimer = 2.0f;
 
+    public LayerMask blockLayers;
+
     private bool countdownBool = false;
     private bool activateSpawn = false;
     private string verticalID;
@@ -160,7 +162,7 @@ public class BlockController : MonoBehaviour
     public void OnCollisionEnter(Collision collision)
     {
         if (!Active) return;
-        if (collision.gameObject.GetComponent<BlockController>() != null && collision.gameObject != gameObject || collision.gameObject.tag == "Ground")
+        if ((blockLayers.value & 1 << collision.gameObject.layer) == 1 << collision.gameObject.layer)
             countdownBool = true;
         impactSFX.Play();
     }
