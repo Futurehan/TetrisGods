@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -17,14 +18,16 @@ public class BlockSpawner : MonoBehaviour
     private int _inactiveBlockLayer = 9;
 
     public Action<GameObject> OnNextBlockShow;
-    private GameObject _nextBlock;
 
     public bool StartSpawningOnStart;
+
+    private Queue<GameObject> _nextBlocks;
     
     private void Start()
     {
-        _nextBlock = _nextBlock = blockList[Random.Range(0, blockList.Capacity)];
-        OnNextBlockShow?.Invoke(_nextBlock);
+        _nextBlocks = new Queue<GameObject>(blockList.OrderBy(x => Random.value));
+        
+        OnNextBlockShow?.Invoke(_nextBlocks.Peek());
         
         if(StartSpawningOnStart)
             CallNext();
@@ -38,12 +41,10 @@ public class BlockSpawner : MonoBehaviour
             return;
         }
 
-        if (_nextBlock == null)
-        {
-            _nextBlock = blockList[Random.Range(0, blockList.Capacity)];
-            OnNextBlockShow?.Invoke(_nextBlock);
-      
-        }
+        if (_nextBlocks.Count <=  0 )     
+            _nextBlocks = new Queue<GameObject>(blockList.OrderBy(x => Random.value));
+
+        
       
   
 
@@ -61,7 +62,7 @@ public class BlockSpawner : MonoBehaviour
         Vector3 spawnPos = gameObject.transform.position;
         spawnPos.x += Random.Range(BlockSpawnWidth * -0.5f, BlockSpawnWidth * 0.5f);
         
-        GameObject cached = Instantiate(_nextBlock, spawnPos, Quaternion.identity);
+        GameObject cached = Instantiate(_nextBlocks.Dequeue(), spawnPos, Quaternion.identity);
         BlockController block = cached.GetComponent<BlockController>();
         block.Activate(this, player);
      
@@ -78,8 +79,14 @@ public class BlockSpawner : MonoBehaviour
             OnSpawner.Invoke(block, player);
        
         //Setting new block
-        _nextBlock = _nextBlock = blockList[Random.Range(0, blockList.Capacity)];
-        OnNextBlockShow?.Invoke(_nextBlock);
+        if (_nextBlocks.Count < 1)       
+            _nextBlocks = new Queue<GameObject>(blockList.OrderBy(x => Random.value));
+      
+        
+
+        
+        
+        OnNextBlockShow?.Invoke(_nextBlocks.Peek());
     }
 
     public Vector3 GetTopMostPoint()
