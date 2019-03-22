@@ -35,7 +35,7 @@ public class BlockSpawner : MonoBehaviour
 
     public void CallNext()
     {
-        if (GameManager.IsPaused || GameManager.IsRoundOver)
+        if (GameManager.IsPaused || GameManager.IsRoundOver && player != GameManager.PlayerIndex.Noll)
         {
             Debug.Log("Paused");
             return;
