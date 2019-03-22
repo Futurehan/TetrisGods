@@ -125,7 +125,7 @@ public class BlockController : MonoBehaviour
                 thrustLerpDistance = thrustLerpDistance - thrustLerpSpeed * Time.deltaTime;
             }
         }
-        if (input.x > 0)
+        if (Mathf.Abs(input.x) > 0)
         {
             if (Input.GetAxis(horizontalID) > 0)
             {
