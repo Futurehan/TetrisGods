@@ -17,9 +17,9 @@ public class ShowTimerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float timeLeft = GameManager.MaxTime - GameManager.RoundTime;
+        float timeLeft = GameManager.MaxTime - GameManager.CurrentGameTime;
 
-        ourTimer.text = ((int) timeLeft).ToString();
+        ourTimer.text = GameManager.EndlessMode ? "oo" : ((int) timeLeft).ToString();
 
     }
 }

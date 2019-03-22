@@ -58,11 +58,35 @@ public class GameManager : MonoBehaviour
     private GameObject _floorTag;
     private bool _preRoundOver;
     public static bool IsRoundOver {get;  private set; }
-    public static float RoundTime => _instance.CurrentTime;
+    public static float CurrentGameTime => _instance.CurrentTime;
     public static float MaxTime => _instance.Settings.RoundTime;
 
     private BlockSpawner PlayerOneSpawner => FindObjectsOfType<BlockSpawner>().FirstOrDefault(spawner => spawner.player == PlayerIndex.One);
     private BlockSpawner PlayerTwoSpawner => FindObjectsOfType<BlockSpawner>().FirstOrDefault(spawner => spawner.player == PlayerIndex.Two);
+
+    public static bool EndlessMode
+    {
+        get
+        {
+            return _instance.Settings.Endless;
+        }
+        set
+        {
+            _instance.Settings.Endless = value;
+        }
+    }
+
+    public static float RoundTime
+    {
+        get
+        {
+            return _instance.Settings.RoundTime;
+        }
+        set
+        {
+            _instance.Settings.RoundTime = value;
+        }
+    }
 
     private void Setup()
     {
@@ -170,7 +194,8 @@ public class GameManager : MonoBehaviour
             PlayerOneSpawner.CallNext();
             PlayerTwoSpawner.CallNext();
         }
-        
+        if (Settings.Endless) return;
+    
         CurrentTime += Time.deltaTime;    
           
         if (CurrentTime > Settings.RoundTime)

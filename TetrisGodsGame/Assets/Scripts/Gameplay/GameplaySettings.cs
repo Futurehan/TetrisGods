@@ -6,4 +6,5 @@ public class GameplaySettings : ScriptableObject
 {
     public float RoundTime;
     public float PreRoundTime;
+    public bool Endless;
 }

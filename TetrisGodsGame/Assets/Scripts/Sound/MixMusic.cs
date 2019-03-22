@@ -42,7 +42,7 @@ public class MixMusic : MonoBehaviour
 
     public void Piano()
     {
-        StartCoroutine(FadeIn(piano, 0.08f, musicVolume));
+        StartCoroutine(FadeIn(piano, 0.08f, 1f));
         StartCoroutine(FadeOut(chip, 0.08f, 0));
         StartCoroutine(FadeOut(classic, 0.08f, 0));
         StartCoroutine(FadeOut(dance, 0.08f, 0));
@@ -52,7 +52,7 @@ public class MixMusic : MonoBehaviour
     public void Classic()
     {
         onClickSoundSourcec.PlayOneShot(clickSound);
-        StartCoroutine(FadeIn(classic, 0.08f, musicVolume));
+        StartCoroutine(FadeIn(classic, 0.08f, 1f));
         StartCoroutine(FadeOut(chip, 0.08f, 0));
         StartCoroutine(FadeOut(piano, 0.08f, 0));
         StartCoroutine(FadeOut(dance, 0.08f, 0));
@@ -76,7 +76,7 @@ public class MixMusic : MonoBehaviour
         while (track.volume < musicVolume)
         {
             currentTime += Time.deltaTime;
-            track.volume = Mathf.Lerp(0, musicVolume, currentTime / totalTime);
+            track.volume = Mathf.Lerp(0, maxVolume, currentTime / totalTime);
             yield return 1f;
         }
     }
