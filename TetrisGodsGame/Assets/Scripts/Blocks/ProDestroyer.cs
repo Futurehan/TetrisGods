@@ -32,6 +32,8 @@ public class ProDestroyer : MonoBehaviour
         Transform parent = collision.transform.parent;
         if (parent)
         {
+            BlockController parentController = GetComponentInParent<BlockController>();
+   
             for (int i = 0; i < parent.childCount; i++)
             {
                 GameObject subBox = parent.GetChild(i).gameObject;
@@ -44,9 +46,11 @@ public class ProDestroyer : MonoBehaviour
                 {
                     subBox.GetComponent<Rigidbody>().isKinematic = false;
                 }
-
-
             }
+            
+            if (parentController != null && parentController.Active)
+                parentController.Spawn();         
+            
         }
 
         //Destroy collided blocks and count how many
