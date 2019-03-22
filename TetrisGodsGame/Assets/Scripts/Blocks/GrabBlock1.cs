@@ -28,7 +28,6 @@ public class GrabBlock1 : MonoBehaviour, IPowerUp
     public void Death()
     {
         Destroy(gameObject);
-        print("BOOM");
     }
     
     private void OnDestroy()
@@ -38,7 +37,6 @@ public class GrabBlock1 : MonoBehaviour, IPowerUp
             if (s!=null)
             {
                 Destroy(s);
-                print("Boom");
             }
         }
         foreach (Rigidbody b in rigidbodies)
@@ -46,7 +44,7 @@ public class GrabBlock1 : MonoBehaviour, IPowerUp
             if (b!=null)
             {
                 b.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-                print(b.gameObject.name);
+//                print(b.gameObject.name);
             }
         }
     }

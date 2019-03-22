@@ -636,25 +636,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7991621341491544284}
     m_Modifications:
-    - target: {fileID: 6188529826274293989, guid: 7dd7b60d3c8e6624db303c66e37db8e7,
-        type: 3}
-      propertyPath: m_Name
-      value: ImpactSFX
-      objectReference: {fileID: 0}
     - target: {fileID: 3776558317118332700, guid: 7dd7b60d3c8e6624db303c66e37db8e7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3776558317118332700, guid: 7dd7b60d3c8e6624db303c66e37db8e7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3776558317118332700, guid: 7dd7b60d3c8e6624db303c66e37db8e7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.46
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3776558317118332700, guid: 7dd7b60d3c8e6624db303c66e37db8e7,
         type: 3}
@@ -696,6 +691,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6188529826274293989, guid: 7dd7b60d3c8e6624db303c66e37db8e7,
+        type: 3}
+      propertyPath: m_Name
+      value: ImpactSFX
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dd7b60d3c8e6624db303c66e37db8e7, type: 3}
 --- !u!4 &4106001285865778148 stripped
@@ -725,17 +725,17 @@ PrefabInstance:
     - target: {fileID: 7114265760338422124, guid: 02fce59462d559345acceb3e2fb4ad1a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7114265760338422124, guid: 02fce59462d559345acceb3e2fb4ad1a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7114265760338422124, guid: 02fce59462d559345acceb3e2fb4ad1a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.46
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7114265760338422124, guid: 02fce59462d559345acceb3e2fb4ad1a,
         type: 3}

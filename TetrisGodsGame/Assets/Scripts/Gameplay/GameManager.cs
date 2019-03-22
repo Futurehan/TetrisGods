@@ -41,11 +41,23 @@ public class GameManager : MonoBehaviour
     
     private BlockLists BlockList;
     private Dictionary<PlayerIndex, int> PlayerScore;
-    public static bool IsPaused { get; private set; }
+    private static bool _isPausedHelper;
+    public static bool IsPaused
+    {
+        get { return _isPausedHelper; }
+        set
+        {
+            _isPausedHelper = value;
+            Time.timeScale = _isPausedHelper ? 0 : 1;
+        }
+    }
+
     private float CurrentTime;
+    private float _preGameTimer;
     private GameplaySettings Settings;
     private GameObject _floorTag;
-
+    private bool _preRoundOver;
+    public static bool IsRoundOver {get;  private set; }
     public static float RoundTime => _instance.CurrentTime;
     public static float MaxTime => _instance.Settings.RoundTime;
 
@@ -54,10 +66,10 @@ public class GameManager : MonoBehaviour
 
     private void Setup()
     {
-        Debug.Log("Set up");
+       // Debug.Log("Set up");
 
         Settings = Resources.Load<GameplaySettings>("GameplaySettings");
-        Debug.Log($"Settings{Settings}");
+//        Debug.Log($"Settings{Settings}");
         PlayerScore = new Dictionary<PlayerIndex, int>();
         
         for (int i = 0; i < (int)PlayerIndex.Two; i++)
@@ -79,7 +91,9 @@ public class GameManager : MonoBehaviour
         }
 
         CurrentTime = 0;
+        _preGameTimer = Settings.PreRoundTime;
         IsPaused = false;
+        IsRoundOver = false;
     }
 
     public static void SetupGame()
@@ -95,11 +109,6 @@ public class GameManager : MonoBehaviour
     public static int GetScore(PlayerIndex playerIndex)
     {
         return _instance.PlayerScore[playerIndex];
-    }
-
-    public static float GetCurrentBlockDropInterval()
-    {
-        return (1 - _instance.Settings.BlockSpawnInterval.Evaluate(_instance.CurrentTime / _instance.Settings.RoundTime)) * _instance.Settings.MaxBlockSpawnInterval;
     }
 
     public static BlockController GetPlayerTopBlock(PlayerIndex player)
@@ -144,11 +153,23 @@ public class GameManager : MonoBehaviour
         RoundOver?.Invoke(winner);
         IsPaused = true;
     }
-
+    
     void Update()
     {
-        if (IsPaused) return;
-        
+        if (IsPaused || IsRoundOver) return;
+
+        if (!_preRoundOver && _preGameTimer > 0)
+        {
+            _preGameTimer -= Time.deltaTime;
+            
+            return;       
+        }
+        else if (!_preRoundOver)
+        {
+            _preRoundOver = true;
+            PlayerOneSpawner.CallNext();
+            PlayerTwoSpawner.CallNext();
+        }
         
         CurrentTime += Time.deltaTime;    
           
@@ -162,7 +183,7 @@ public class GameManager : MonoBehaviour
 
                 RoundOver?.Invoke(winner);
             Debug.Log("Round over!");
-            IsPaused = true;
+            IsRoundOver = true;
         }
            
     }

@@ -9,32 +9,47 @@ public class GameplayCanvas : MonoBehaviour
     public GameObject VictoryPanel;
     public GameObject PausePanel;
     public Image VictoryImage;
-    public AudioSource winSound;
+ 
 
     [Header("Images")]
     public Sprite playerOneImage;
     public Sprite playerTwoImage;
-
+   
+    private AudioSource _winSound;
  
 
     // public Image 
 
     // Start is called before the first frame update
-    void Start()
+    private void OnEnable()
     {
         GameManager.RoundOver += ShowVictoryScreen;
+        _winSound = GetComponentInChildren<AudioSource>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            TogglePausePanel();
     }
 
     private void ShowVictoryScreen(GameManager.PlayerIndex winner)
     {
         VictoryImage.sprite = winner == GameManager.PlayerIndex.One ? playerOneImage : playerTwoImage;
-        winSound.Play();
+        _winSound.Play();
         VictoryPanel.SetActive(true);
         PausePanel.SetActive(false);
     }
 
-    public void ShowPausePanel()
+    public void TogglePausePanel()
     {
-   //     if()
+        PausePanel.SetActive(!PausePanel.activeSelf);
+
+        GameManager.IsPaused = PausePanel.activeSelf;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.RoundOver -= ShowVictoryScreen;
     }
 }

@@ -5,8 +5,5 @@ using UnityEngine;
 public class GameplaySettings : ScriptableObject
 {
     public float RoundTime;
-    public float MaxBlockSpawnInterval;
-    public AnimationCurve BlockSpawnInterval;
-    public float VictoryHeight;
-    public int NumberOfLives;
+    public float PreRoundTime;
 }

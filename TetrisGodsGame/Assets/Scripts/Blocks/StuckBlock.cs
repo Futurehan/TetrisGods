@@ -43,7 +43,7 @@ public class StuckBlock : MonoBehaviour
                 master.AddBody(body);
 
                 body.isKinematic = true;
-                print("Making body kinematic");
+            //    print("Making body kinematic");
 
             }
             BlockController controller = other.GetComponentInParent<BlockController>();
