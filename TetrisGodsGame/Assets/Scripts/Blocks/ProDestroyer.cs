@@ -21,7 +21,7 @@ public class ProDestroyer : MonoBehaviour
     {
         Vector3 shootForce = forceDirection.normalized * 7f;
         body.AddForce(shootForce, ForceMode.Impulse);
-        print("KILLER");
+//        print("KILLER");
     }
 
     private void OnTriggerEnter(Collider collision)

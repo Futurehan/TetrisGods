@@ -79,7 +79,7 @@ public class BlockController : MonoBehaviour
             rightThrust.SetActive(false);
             thrusterSFX.Stop();
         }
-        blockSpawner.CallNext();
+        blockSpawner?.CallNext();
         Active = false;
         activateSpawn = false;
         this.enabled = false;
@@ -87,6 +87,9 @@ public class BlockController : MonoBehaviour
 
     private void Movement()
     {
+         if(owner == GameManager.PlayerIndex.Noll) return;
+         
+        
         if (Active)
         {
             Vector3 forceInput = Input.GetAxis(verticalID) * body.transform.up * forceAmmount * Time.deltaTime;

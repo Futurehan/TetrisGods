@@ -7,12 +7,20 @@ public class WinScreen : MonoBehaviour
 {
     // Start is called before the first frame update
    public void GoToMain ()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-    }
+   {
+        StartCoroutine(ChillLoad(SceneManager.GetActiveScene().buildIndex - 1));
+   }
 
     public void Restart ()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);
+        StartCoroutine(ChillLoad(SceneManager.GetActiveScene().buildIndex + 0));
+    }
+
+    private IEnumerator ChillLoad(int index)
+    {
+        GameManager.IsPaused = false;
+        yield return null;
+        SceneManager.LoadSceneAsync(index);
+
     }
 }

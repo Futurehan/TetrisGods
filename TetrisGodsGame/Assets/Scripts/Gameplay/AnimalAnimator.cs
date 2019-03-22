@@ -60,7 +60,6 @@ private float heigtDiffTheLastSec;
         if (Mathf.Abs(heightDiff) > _significantHeightDiff)
         {
             bool happy = heightDiff > 0;
-            Debug.Log("Diff!");
             _animator.SetTrigger(happy ? "Yell" : "Sad");
             _reactionTimer = _reactionDelays;
         }

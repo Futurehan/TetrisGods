@@ -53,10 +53,11 @@ MonoBehaviour:
   piano: {fileID: 8065435210677856655}
   classic: {fileID: 8065435208966418181}
   dance: {fileID: 8065435209853757631}
-  onClickSound: {fileID: 8065435210497365046}
+  onClickSoundSourcec: {fileID: 8065435210497365046}
+  clickSound: {fileID: 8300000, guid: ef8e41c93ff6a484ca2ac5739494e9e6, type: 3}
   keepFadingIn: 0
   keepFadingOut: 0
-  musicVolume: 0.8
+  musicVolume: 0.53
 --- !u!114 &8065435208866693171
 MonoBehaviour:
   m_ObjectHideFlags: 0
