@@ -191,8 +191,10 @@ public class GameManager : MonoBehaviour
         else if (!_preRoundOver)
         {
             _preRoundOver = true;
-            PlayerOneSpawner.CallNext();
-            PlayerTwoSpawner.CallNext();
+           //PlayerOneSpawner?.CallNext();
+          //  PlayerTwoSpawner?.CallNext();
+
+            FindObjectsOfType<BlockSpawner>().ToList().ForEach(spawner => spawner.CallNext());
         }
         if (Settings.Endless) return;
     
