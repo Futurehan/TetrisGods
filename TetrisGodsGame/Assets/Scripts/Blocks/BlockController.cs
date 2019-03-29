@@ -90,7 +90,7 @@ public class BlockController : MonoBehaviour
          if(owner == GameManager.PlayerIndex.Noll) return;
          
         
-        if (Active)
+        if (Active && !GameManager.IsRoundOver) 
         {
             Vector3 forceInput = Input.GetAxis(verticalID) * body.transform.up * forceAmmount * Time.deltaTime;
             Vector3 turnInput = Input.GetAxis(horizontalID) * body.transform.forward * thrustAmmount * Time.deltaTime;
